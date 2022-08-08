@@ -1,1 +1,3 @@
-﻿  PacmanRemake.vcxproj -> C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe
+﻿  Source.cpp
+C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Source.cpp(35): warning C4715: 'InitSDL': not all control paths return a value
+  PacmanRemake.vcxproj -> C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe
