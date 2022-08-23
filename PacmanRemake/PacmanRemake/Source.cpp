@@ -3,12 +3,14 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include "constants.h"
+#include "ScreenManager.h"
 using namespace std;
 //Globals
 SDL_Window* g_window = nullptr;
 SDL_Renderer* g_renderer = nullptr;
 SDL_Texture* g_texture = nullptr;
-
+Uint32 g_time;
+ScreenManager* screen_manager;
 
 
 
@@ -78,12 +80,50 @@ void CloseSDL()
 	SDL_Quit();
 }
 
-int main(int argc, char* args[])
+bool Update()
+{
+	Uint32 new_time = SDL_GetTicks();
+
+	//Event handler
+	SDL_Event e;
+
+	//get events
+	SDL_PollEvent(&e);
+	switch (e.type)
+	{
+	case SDL_KEYDOWN:
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_x: {
+			return true;
+			break; }
+		}
+	}
+
+screen_manager->Update((float)(new_time - g_time) / 1000.0f, e);
+	g_time = new_time;
+	return false;
+}
+
+int main(int argc, char* args[]) 
 {
 	//check if sdl was setup correctly
 	if (InitSDL())
 	{
-		SDL_Delay(5000);
+
+
+		screen_manager = new ScreenManager(g_renderer, SCREEN_MENU);
+
+		//set the time
+		g_time = SDL_GetTicks();
+
+		bool quit = false;
+
+			while (!quit)
+			{
+				Render();
+				quit = Update();
+			}
 	}
 
 	CloseSDL();
