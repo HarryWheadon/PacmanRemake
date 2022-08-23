@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "Commons.h"
+#include "constants.h"
 class ScreenManager
 {
 public:
@@ -14,6 +15,6 @@ public:
 	int GetScreen() { return screen; }
 private:
 	SDL_Renderer* m_renderer;
-	SCREEN* screen;
+	SCREENS screen;
 };
 
