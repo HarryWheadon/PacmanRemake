@@ -12,9 +12,9 @@ public:
 	void Update(float deltaTime, SDL_Event e);
 
 	void ChangeScreen(SCREENS new_screen);
-	int GetScreen() { return screen; }
+	int GetScreen() { return m_current_screen; }
 private:
 	SDL_Renderer* m_renderer;
-	SCREENS screen;
+	SCREENS m_current_screen;
 };
 
