@@ -144,6 +144,7 @@
     <ClCompile Include="CharacterGhost.cpp" />
     <ClCompile Include="CharacterPacman.cpp" />
     <ClCompile Include="Characters.cpp" />
+    <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Characters.h" />
     <ClInclude Include="commons.h" />
     <ClInclude Include="constants.h" />
+    <ClInclude Include="GameScreen.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="Texture.h" />
