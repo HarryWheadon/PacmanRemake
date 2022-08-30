@@ -36,12 +36,40 @@ Character::~Character()
 
 void Character::Render()
 {
+
 }
 
 void Character::Update(float deltaTime, SDL_Event e)
 {
+
+	if (m_moving_left)
+	{
+		MoveLeft(deltaTime);
+	}
+	if (m_moving_right)
+	{
+		MoveRight(deltaTime);
+	}
+	if (GetHitWall() == true)
+	{
+		if (m_position.x < 0)
+		{
+			m_position.x += 1;
+		}
+		else if (m_position.x > 495)
+		{
+			m_position.x -= 1;
+		}
+	}
 }
 
 void Character::SetAlive(bool isAlive)
 {
+	m_alive = isAlive;
 }
+
+void Character::HitWall(bool Hitwall)
+{
+	hitwall = Hitwall;
+}
+

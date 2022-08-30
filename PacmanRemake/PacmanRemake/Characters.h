@@ -20,11 +20,14 @@ protected:
 	bool m_moving_left;
 	bool m_moving_right;
 	bool m_alive;
+	bool hitwall;
 public:
 	Character(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);
 	~Character();
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
+	bool GetHitWall() { return hitwall; }
+	void HitWall(bool hitwall);
 
 	FACING m_facing_direction;
 	bool GetAlive() { return m_alive; }
