@@ -2,11 +2,12 @@
 #include <SDL.h>
 #include <iostream>
 #include "Commons.h"
-#include "Texture2D.h"
+#include "Texture.h"
+#include "constants.h"
 #include "LevelMap.h"
 using namespace std;
 
-class Texture2D;
+class Texture;
 class Character
 {
 protected:
@@ -14,7 +15,7 @@ protected:
 	virtual void MoveRight(float deltaTime);
 	SDL_Renderer* m_renderer;
 	Vector2D m_position;
-	Texture2D* m_texture;
+	Texture* m_texture;
 
 	bool m_moving_left;
 	bool m_moving_right;
