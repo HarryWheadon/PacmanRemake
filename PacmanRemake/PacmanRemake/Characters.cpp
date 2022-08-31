@@ -1,4 +1,27 @@
 #include "Characters.h"
+void Characters::MoveLeft(float deltaTime)
+{
+	m_facing_direction = FACING_LEFT;
+	m_position.x -= deltaTime * MOVEMENTSPEED;
+}
+
+void Characters::MoveRight(float deltaTime)
+{
+	m_facing_direction = FACING_RIGHT;
+	m_position.x += deltaTime * MOVEMENTSPEED;
+}
+
+void Characters::MoveUp(float deltaTime)
+{
+	m_facing_direction = FACING_UP;
+	m_position.y += deltaTime * MOVEMENTSPEED;
+}
+
+void Characters::MoveDown(float deltaTime)
+{
+	m_facing_direction = FACING_DOWN;
+	m_position.y -= deltaTime * MOVEMENTSPEED;
+}
 
 Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map)
 {
@@ -26,16 +49,15 @@ Characters::~Characters()
 
 void Characters::Render()
 {
-	/*m_single_sprite_w = m_texture->GetWidth();
+	m_single_sprite_w = m_texture->GetWidth();
 	m_single_sprite_h = m_texture->GetHeight();
 
-	SDL_Rect portion_of_sprite = { m_single_sprite_w,0,m_single_sprite_w, m_single_sprite_h };
+	SDL_Rect portion_of_sprite = { 0,0,m_single_sprite_w, m_single_sprite_h };
 
 	SDL_Rect destRect = { (int)(m_position.x), (int)(m_position.y), m_single_sprite_w, m_single_sprite_h };
 
-	m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);*/
+	m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);
 
-	m_texture->Render(Vector2D(0, 0), SDL_FLIP_NONE, 0.0);
 }
 
 void Characters::Update(float deltaTime, SDL_Event e)
@@ -69,30 +91,6 @@ void Characters::HitWall(bool Hitwall)
 	hitwall = Hitwall;
 }
 
-void Characters::MoveLeft(float deltaTime)
-{
-	m_facing_direction = FACING_LEFT;
-	m_position.x -= deltaTime * MOVEMENTSPEED;
-}
-
-void Characters::MoveRight(float deltaTime)
-{
-	m_facing_direction = FACING_RIGHT;
-	m_position.x += deltaTime * MOVEMENTSPEED;
-}
-
-void Characters::MoveUp(float deltaTime)
-{
-	m_facing_direction = FACING_UP;
-	m_position.y += deltaTime * MOVEMENTSPEED;
-}
-
-void Characters::MoveDown(float deltaTime)
-{
-	m_facing_direction = FACING_DOWN;
-	m_position.y -= deltaTime * MOVEMENTSPEED;
-}
-
 
 
 CharacterPacman::CharacterPacman(SDL_Renderer* renderer, string imagePath, Vector2D startposition, LevelMap* map) : Characters(renderer, imagePath, startposition, map)
@@ -106,32 +104,32 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 	case SDL_KEYDOWN:
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_LEFT:
+		case SDLK_a:
 			m_moving_left = true;
 			break;
-		case SDLK_RIGHT:
+		case SDLK_d:
 			m_moving_right = true;
 			break;
-		case SDLK_UP:
+		case SDLK_w:
 			m_moving_up = true;
 			break;
-		case SDLK_DOWN:
+		case SDLK_s:
 			m_moving_down = true;
 			break;
 		}
 	case SDL_KEYUP:
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_LEFT:
+		case SDLK_a:
 			m_moving_left = false;
 			break;
-		case SDLK_RIGHT:
+		case SDLK_d:
 			m_moving_right = false;
 			break;
-		case SDLK_UP:
+		case SDLK_w:
 			m_moving_up = false;
 			break;
-		case SDLK_DOWN:
+		case SDLK_s:
 			m_moving_down = false;
 			break;
 		}
