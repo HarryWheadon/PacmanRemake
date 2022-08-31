@@ -31,6 +31,7 @@ void Characters::Render()
 
 	SDL_Rect destRect = { (int)(m_position.x), (int)(m_position.y), m_single_sprite_w, m_single_sprite_h };
 
+	m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);
 }
 
 void Characters::Update(float deltaTime, SDL_Event e)

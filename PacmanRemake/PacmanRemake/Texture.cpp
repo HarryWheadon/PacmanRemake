@@ -15,6 +15,11 @@ void Texture::Render(Vector2D new_position, SDL_RendererFlip flip, double angle)
 	SDL_RenderCopyEx(m_renderer, m_texture, nullptr, &renderLocation, 0, nullptr, flip);
 }
 
+void Texture::Render(SDL_Rect src_rect, SDL_Rect src_dest, SDL_RendererFlip flip, double angle)
+{
+	SDL_RenderCopyEx(m_renderer, m_texture, &src_rect, &src_dest, angle, nullptr, flip);
+}
+
 void Texture::RemoveTexture()
 {
 	//check is texture exists before removing it
@@ -27,6 +32,16 @@ void Texture::RemoveTexture()
 		m_height = 0;
 	}
 }
+
+
+
+Texture::~Texture()
+{
+	RemoveTexture();
+
+	m_renderer = nullptr;
+}
+
 
 bool Texture::LoadTexFromFile(std::string path)
 {
@@ -64,14 +79,5 @@ bool Texture::LoadTexFromFile(std::string path)
 
 	//Return whether the process was successful
 	return m_texture != nullptr;
-}
-
-
-
-Texture::~Texture()
-{
-	RemoveTexture();
-
-	m_renderer = nullptr;
 }
 
