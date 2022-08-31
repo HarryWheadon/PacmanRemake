@@ -19,6 +19,8 @@ protected:
 
 	bool m_moving_left;
 	bool m_moving_right;
+	bool m_moving_up;
+	bool m_moving_down;
 	bool m_alive;
 	bool hitwall;
 public:
@@ -34,4 +36,12 @@ public:
 	void SetAlive(bool isAlive);
 private:
 	LevelMap* m_current_level_map;
+};
+
+
+class CharacterPacman : public Characters
+{
+public:
+	CharacterPacman(SDL_Renderer* renderer, string imagePath, Vector2D startposition, LevelMap* map);
+	virtual void PacmanUpdate(float deltaTime, SDL_Event e);
 };

@@ -72,3 +72,42 @@ void Characters::MoveRight(float deltaTime)
 	m_facing_direction = FACING_RIGHT;
 	m_position.x += deltaTime * MOVEMENTSPEED;
 }
+
+CharacterPacman::CharacterPacman(SDL_Renderer* renderer, string imagePath, Vector2D startposition, LevelMap* map) {}
+
+void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
+{
+	switch (e.type)
+	{
+	case SDL_KEYDOWN:
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_LEFT:
+			m_moving_left = true;
+			break;
+		case SDLK_RIGHT:
+			m_moving_right = true;
+			break;
+		case SDLK_UP:
+			m_moving_up = true;
+			break;
+		case SDLK_DOWN:
+			m_moving_down = true;
+			break;
+		}
+	case SDL_KEYUP:
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_LEFT:
+			m_moving_left = false;
+			break;
+		case SDLK_RIGHT:
+			m_moving_right = false;
+			break;
+		}
+		break;
+	}
+}
+
+
+

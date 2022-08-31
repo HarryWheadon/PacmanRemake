@@ -51,12 +51,6 @@ Level1::Level1(SDL_Renderer* renderer) : GameScreen(renderer)
 	m_level_map = nullptr;
 }
 
-Level1::~Level1()
-{
-	delete m_background_texture;
-	m_background_texture = nullptr;
-}
-
 void Level1::Render()
 {
 	//draw the background
@@ -66,4 +60,10 @@ void Level1::Render()
 void Level1::Update(float deltaTime, SDL_Event e)
 {
 
+}
+
+Level1::~Level1()
+{
+	delete m_background_texture;
+	m_background_texture = nullptr;
 }
