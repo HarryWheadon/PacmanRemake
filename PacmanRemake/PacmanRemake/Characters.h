@@ -8,7 +8,7 @@
 using namespace std;
 
 class Texture;
-class Character
+class Characters
 {
 protected:
 	virtual void MoveLeft(float deltaTime);
@@ -22,8 +22,8 @@ protected:
 	bool m_alive;
 	bool hitwall;
 public:
-	Character(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);
-	~Character();
+	Characters(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);
+	~Characters();
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
 	bool GetHitWall() { return hitwall; }
@@ -34,4 +34,4 @@ public:
 	void SetAlive(bool isAlive);
 private:
 	LevelMap* m_current_level_map;
-}
+};

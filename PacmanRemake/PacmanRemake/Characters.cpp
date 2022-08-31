@@ -1,18 +1,6 @@
 #include "Characters.h"
 
-void Character::MoveLeft(float deltaTime)
-{
-	m_facing_direction = FACING_LEFT;
-	m_position.x -= deltaTime * MOVEMENTSPEED;
-}
-
-void Character::MoveRight(float deltaTime)
-{
-	m_facing_direction = FACING_RIGHT;
-	m_position.x += deltaTime * MOVEMENTSPEED;
-}
-
-Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map)
+Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map)
 {
 	m_current_level_map = map;
 	m_renderer = renderer;
@@ -29,17 +17,17 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D startPos
 	m_moving_right = false;
 }
 
-Character::~Character()
+Characters::~Characters()
 {
 	m_renderer = nullptr;
 }
 
-void Character::Render()
+void Characters::Render()
 {
 
 }
 
-void Character::Update(float deltaTime, SDL_Event e)
+void Characters::Update(float deltaTime, SDL_Event e)
 {
 
 	if (m_moving_left)
@@ -63,13 +51,24 @@ void Character::Update(float deltaTime, SDL_Event e)
 	}
 }
 
-void Character::SetAlive(bool isAlive)
+void Characters::SetAlive(bool isAlive)
 {
 	m_alive = isAlive;
 }
 
-void Character::HitWall(bool Hitwall)
+void Characters::HitWall(bool Hitwall)
 {
 	hitwall = Hitwall;
 }
 
+void Characters::MoveLeft(float deltaTime)
+{
+	m_facing_direction = FACING_LEFT;
+	m_position.x -= deltaTime * MOVEMENTSPEED;
+}
+
+void Characters::MoveRight(float deltaTime)
+{
+	m_facing_direction = FACING_RIGHT;
+	m_position.x += deltaTime * MOVEMENTSPEED;
+}

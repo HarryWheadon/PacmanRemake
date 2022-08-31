@@ -69,6 +69,8 @@ bool InitSDL()
 	}
 }
 
+
+
 void CloseSDL()
 {
 	//release the window
@@ -79,6 +81,9 @@ void CloseSDL()
 	IMG_Quit();
 	SDL_Quit();
 }
+
+
+
 
 bool Update()
 {
@@ -105,6 +110,8 @@ screen_manager->Update((float)(new_time - g_time) / 1000.0f, e);
 	return false;
 }
 
+
+
 int main(int argc, char* args[]) 
 {
 	//check if sdl was setup correctly
@@ -112,7 +119,7 @@ int main(int argc, char* args[])
 	{
 
 
-		screen_manager = new ScreenManager(g_renderer, SCREEN_MENU);
+		screen_manager = new ScreenManager(g_renderer, SCREEN_LEVEL1);
 
 		//set the time
 		g_time = SDL_GetTicks();
