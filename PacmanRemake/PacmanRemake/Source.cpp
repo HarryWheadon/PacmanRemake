@@ -20,6 +20,8 @@ void Render()
 	SDL_SetRenderDrawColor(g_renderer, 0x00, 0x00, 0x00, 0x00);
 	SDL_RenderClear(g_renderer);
 
+	screen_manager->Render();
+
 	//Update the screen
 	SDL_RenderPresent(g_renderer);
 }

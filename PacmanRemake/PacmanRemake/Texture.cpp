@@ -34,7 +34,6 @@ void Texture::RemoveTexture()
 }
 
 
-
 Texture::~Texture()
 {
 	RemoveTexture();
