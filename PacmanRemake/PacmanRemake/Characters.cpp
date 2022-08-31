@@ -15,6 +15,8 @@ Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startP
 
 	m_moving_left = false;
 	m_moving_right = false;
+	m_moving_up = false;
+	m_moving_down = false;
 }
 
 Characters::~Characters()

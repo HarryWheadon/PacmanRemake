@@ -36,9 +36,10 @@ bool Level1::SetUpLevel()
 
 	Pacman_Character = new CharacterPacman(m_renderer, "Images/Pacman.png", Vector2D(64, 330), m_level_map);
 	//load texture
+
 	m_background_texture = new Texture(m_renderer);
 
-	if (!m_background_texture->LoadTexFromFile("Images/BackgroundMB.png"))
+	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackgroundNew.png"))
 	{
 		std::cout << " Failed to load background texture!" << std::endl;
 		return false;
@@ -61,7 +62,7 @@ void Level1::Render()
 
 void Level1::Update(float deltaTime, SDL_Event e)
 {
-	Pacman_Character->Update(deltaTime, e);
+	Pacman_Character->PacmanUpdate(deltaTime, e);
 }
 
 Level1::~Level1()
