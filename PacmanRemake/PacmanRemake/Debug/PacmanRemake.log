@@ -1,2 +1,6 @@
-﻿  Level1.cpp
+﻿  Texture.cpp
+C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,42): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,58): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   PacmanRemake.vcxproj -> C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe

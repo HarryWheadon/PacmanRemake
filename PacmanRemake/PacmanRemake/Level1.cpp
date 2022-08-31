@@ -34,6 +34,7 @@ bool Level1::SetUpLevel()
 
 	m_background_yPos = 0.0f;
 
+	Pacman_Character = new CharacterPacman(m_renderer, "Images/Pacman.png", Vector2D(64, 330), m_level_map);
 	//load texture
 	m_background_texture = new Texture(m_renderer);
 
@@ -55,11 +56,12 @@ void Level1::Render()
 {
 	//draw the background
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE, 0.0);
+	Pacman_Character->Render();
 }
 
 void Level1::Update(float deltaTime, SDL_Event e)
 {
-
+	Pacman_Character->Update(deltaTime, e);
 }
 
 Level1::~Level1()

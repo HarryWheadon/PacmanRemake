@@ -142,7 +142,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CharacterGhost.cpp" />
-    <ClCompile Include="CharacterPacman.cpp" />
     <ClCompile Include="Characters.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Level1.cpp" />
@@ -160,7 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterGhost.h" />
-    <ClInclude Include="CharacterPacman.h" />
     <ClInclude Include="Characters.h" />
     <ClInclude Include="commons.h" />
     <ClInclude Include="constants.h" />

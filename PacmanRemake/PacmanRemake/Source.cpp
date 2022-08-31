@@ -36,8 +36,8 @@ bool InitSDL()
 	{
 		//else, then window is created
 		g_window = SDL_CreateWindow("Pacman",
-			SDL_WINDOW_FULLSCREEN,
-			SDL_WINDOW_FULLSCREEN,
+			SDL_WINDOWPOS_UNDEFINED,
+			SDL_WINDOWPOS_UNDEFINED,
 			SCREEN_WIDTH,
 			SCREEN_HEIGHT,
 			SDL_WINDOW_SHOWN);
@@ -80,9 +80,14 @@ void CloseSDL()
 	//quit SDL subsystems
 	IMG_Quit();
 	SDL_Quit();
+
+	g_renderer = nullptr;
+	SDL_DestroyRenderer(g_renderer);
+
+
+	delete screen_manager;
+	screen_manager = nullptr;
 }
-
-
 
 
 bool Update()
@@ -94,6 +99,8 @@ bool Update()
 
 	//get events
 	SDL_PollEvent(&e);
+
+	//if x is pressed the window closes
 	switch (e.type)
 	{
 	case SDL_KEYDOWN:
@@ -117,8 +124,6 @@ int main(int argc, char* args[])
 	//check if sdl was setup correctly
 	if (InitSDL())
 	{
-
-
 		screen_manager = new ScreenManager(g_renderer, SCREEN_LEVEL1);
 
 		//set the time

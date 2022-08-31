@@ -13,6 +13,8 @@ class Characters
 protected:
 	virtual void MoveLeft(float deltaTime);
 	virtual void MoveRight(float deltaTime);
+	virtual void MoveUp(float deltaTime);
+	virtual void MoveDown(float deltaTime);
 	SDL_Renderer* m_renderer;
 	Vector2D m_position;
 	Texture* m_texture;
@@ -21,6 +23,8 @@ protected:
 	bool m_moving_right;
 	bool m_moving_up;
 	bool m_moving_down;
+	float m_single_sprite_w;
+	float m_single_sprite_h;
 	bool m_alive;
 	bool hitwall;
 public:

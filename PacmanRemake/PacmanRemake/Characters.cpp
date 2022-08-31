@@ -24,6 +24,12 @@ Characters::~Characters()
 
 void Characters::Render()
 {
+	m_single_sprite_w = m_texture->GetWidth();
+	m_single_sprite_h = m_texture->GetHeight();
+
+	SDL_Rect portion_of_sprite = { m_single_sprite_w,0,m_single_sprite_w, m_single_sprite_h };
+
+	SDL_Rect destRect = { (int)(m_position.x), (int)(m_position.y), m_single_sprite_w, m_single_sprite_h };
 
 }
 
@@ -38,6 +44,15 @@ void Characters::Update(float deltaTime, SDL_Event e)
 	{
 		MoveRight(deltaTime);
 	}
+	if (m_moving_up)
+	{
+
+	}
+	if (m_moving_down)
+	{
+
+	}
+
 	if (GetHitWall() == true)
 	{
 		if (m_position.x < 0)
@@ -73,7 +88,23 @@ void Characters::MoveRight(float deltaTime)
 	m_position.x += deltaTime * MOVEMENTSPEED;
 }
 
-CharacterPacman::CharacterPacman(SDL_Renderer* renderer, string imagePath, Vector2D startposition, LevelMap* map) {}
+void Characters::MoveUp(float deltaTime)
+{
+	m_facing_direction = FACING_UP;
+	m_position.y += deltaTime * MOVEMENTSPEED;
+}
+
+void Characters::MoveDown(float deltaTime)
+{
+	m_facing_direction = FACING_DOWN;
+	m_position.y -= deltaTime * MOVEMENTSPEED;
+}
+
+
+
+CharacterPacman::CharacterPacman(SDL_Renderer* renderer, string imagePath, Vector2D startposition, LevelMap* map) : Characters(renderer, imagePath, startposition, map)
+{
+}
 
 void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 {
@@ -104,9 +135,16 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		case SDLK_RIGHT:
 			m_moving_right = false;
 			break;
+		case SDLK_UP:
+			m_moving_up = false;
+			break;
+		case SDLK_DOWN:
+			m_moving_down = false;
+			break;
 		}
 		break;
 	}
+	Characters::Update(deltaTime, e);
 }
 
 

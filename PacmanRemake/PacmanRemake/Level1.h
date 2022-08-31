@@ -1,5 +1,6 @@
 #pragma once
 #include "GameScreen.h"
+#include "Characters.h"
 #include "Commons.h"
 #include "Texture.h"
 #include "LevelMap.h"
@@ -21,6 +22,7 @@ public:
 private:
 	Texture* m_background_texture;
 	LevelMap* m_level_map;
+	CharacterPacman* Pacman_Character;
 
 	float m_background_yPos;
 
