@@ -1,20 +1,2 @@
 ﻿  Characters.cpp
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(27,41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(28,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(30,33): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(30,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(30,53): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(30,53): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(30,72): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(30,72): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(32,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(32,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(32,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(32,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Level1.cpp
-  LevelMap.cpp
-  ScreenManager.cpp
-  Source.cpp
-  Generating Code...
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Source.cpp(72): warning C4715: 'InitSDL': not all control paths return a value
   PacmanRemake.vcxproj -> C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe

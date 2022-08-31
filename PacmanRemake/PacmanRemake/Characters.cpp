@@ -26,14 +26,16 @@ Characters::~Characters()
 
 void Characters::Render()
 {
-	m_single_sprite_w = m_texture->GetWidth();
+	/*m_single_sprite_w = m_texture->GetWidth();
 	m_single_sprite_h = m_texture->GetHeight();
 
 	SDL_Rect portion_of_sprite = { m_single_sprite_w,0,m_single_sprite_w, m_single_sprite_h };
 
 	SDL_Rect destRect = { (int)(m_position.x), (int)(m_position.y), m_single_sprite_w, m_single_sprite_h };
 
-	m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);
+	m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);*/
+
+	m_texture->Render(Vector2D(0, 0), SDL_FLIP_NONE, 0.0);
 }
 
 void Characters::Update(float deltaTime, SDL_Event e)
@@ -49,23 +51,11 @@ void Characters::Update(float deltaTime, SDL_Event e)
 	}
 	if (m_moving_up)
 	{
-
+		MoveUp(deltaTime);
 	}
 	if (m_moving_down)
 	{
-
-	}
-
-	if (GetHitWall() == true)
-	{
-		if (m_position.x < 0)
-		{
-			m_position.x += 1;
-		}
-		else if (m_position.x > 495)
-		{
-			m_position.x -= 1;
-		}
+		MoveDown(deltaTime);
 	}
 }
 

@@ -55,6 +55,7 @@ Level1::Level1(SDL_Renderer* renderer) : GameScreen(renderer)
 
 void Level1::Render()
 {
+
 	//draw the background
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE, 0.0);
 	Pacman_Character->Render();
