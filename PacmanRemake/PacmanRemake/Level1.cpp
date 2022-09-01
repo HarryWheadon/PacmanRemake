@@ -34,7 +34,7 @@ bool Level1::SetUpLevel()
 
 	m_background_yPos = 0.0f;
 
-	Pacman_Character = new CharacterPacman(m_renderer, "Images/Pacman.png", Vector2D(64, 330), m_level_map);
+	Pacman_Character = new CharacterPacman(m_renderer, "Images/PacmanAnimation.png", Vector2D(64, 330), m_level_map);
 	//load texture
 
 	m_background_texture = new Texture(m_renderer);

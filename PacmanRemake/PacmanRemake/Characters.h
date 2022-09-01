@@ -28,6 +28,7 @@ protected:
 	float m_single_sprite_w;
 	float m_single_sprite_h;
 	float m_current_frame;
+	float m_frame_delay;
 
 public:
 	Characters(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);

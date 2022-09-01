@@ -107,9 +107,9 @@ void Characters::Update(float deltaTime, SDL_Event e)
 		m_current_frame++;
 
 		//loop frame around if it goes beyond the number of frames
-		if (m_current_frame > 2)
+		if (m_current_frame > 1)
 			m_current_frame = 0;
-	}
+	}	
 }
 
 void Characters::SetAlive(bool isAlive)
