@@ -23,10 +23,12 @@ protected:
 	bool m_moving_right;
 	bool m_moving_up;
 	bool m_moving_down;
-	float m_single_sprite_w;
-	float m_single_sprite_h;
 	bool m_alive;
 	bool hitwall;
+	float m_single_sprite_w;
+	float m_single_sprite_h;
+	float m_current_frame;
+
 public:
 	Characters(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);
 	~Characters();

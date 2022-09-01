@@ -14,13 +14,13 @@ void Characters::MoveRight(float deltaTime)
 void Characters::MoveUp(float deltaTime)
 {
 	m_facing_direction = FACING_UP;
-	m_position.y += deltaTime * MOVEMENTSPEED;
+	m_position.y -= deltaTime * MOVEMENTSPEED;
 }
 
 void Characters::MoveDown(float deltaTime)
 {
 	m_facing_direction = FACING_DOWN;
-	m_position.y -= deltaTime * MOVEMENTSPEED;
+	m_position.y += deltaTime * MOVEMENTSPEED;
 }
 
 Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map)
@@ -49,15 +49,30 @@ Characters::~Characters()
 
 void Characters::Render()
 {
-	m_single_sprite_w = m_texture->GetWidth();
+	m_single_sprite_w = m_texture->GetWidth() / 2;
 	m_single_sprite_h = m_texture->GetHeight();
 
-	SDL_Rect portion_of_sprite = { 0,0,m_single_sprite_w, m_single_sprite_h };
+	SDL_Rect portion_of_sprite = { m_single_sprite_w * m_current_frame,0,m_single_sprite_w, m_single_sprite_h };
 
 	SDL_Rect destRect = { (int)(m_position.x), (int)(m_position.y), m_single_sprite_w, m_single_sprite_h };
 
-	m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);
+	if (m_facing_direction == FACING_RIGHT)
+	{
+		m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);
+	}
+	else if (m_facing_direction == FACING_LEFT)
+	{
+		m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_HORIZONTAL);
+	}
 
+	if (m_facing_direction == FACING_UP)
+	{
+		m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_NONE);
+	}
+	else if (m_facing_direction == FACING_DOWN)
+	{
+		m_texture->Render(portion_of_sprite, destRect, SDL_FLIP_VERTICAL);
+	}
 }
 
 void Characters::Update(float deltaTime, SDL_Event e)
@@ -78,6 +93,22 @@ void Characters::Update(float deltaTime, SDL_Event e)
 	if (m_moving_down)
 	{
 		MoveDown(deltaTime);
+	}
+
+
+	m_frame_delay -= deltaTime;
+
+	if (m_frame_delay <= 0.0f)
+	{
+		//reset frame delay count
+		m_frame_delay = ANIMATION_DELAY;
+
+		//move the frame over
+		m_current_frame++;
+
+		//loop frame around if it goes beyond the number of frames
+		if (m_current_frame > 2)
+			m_current_frame = 0;
 	}
 }
 
@@ -117,6 +148,7 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			m_moving_down = true;
 			break;
 		}
+		break;
 	case SDL_KEYUP:
 		switch (e.key.keysym.sym)
 		{
