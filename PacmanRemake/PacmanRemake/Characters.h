@@ -4,7 +4,9 @@
 #include "Commons.h"
 #include "Texture.h"
 #include "constants.h"
+#include "Collisions.h"
 #include "LevelMap.h"
+
 using namespace std;
 
 class Texture;
@@ -29,6 +31,7 @@ protected:
 	float m_single_sprite_h;
 	float m_current_frame;
 	float m_frame_delay;
+	LevelMap* m_current_level_map;
 
 public:
 	Characters(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);
@@ -43,7 +46,6 @@ public:
 	bool GetHitWall() { return hitwall; }
 	void HitWall(bool hitwall);
 private:
-	LevelMap* m_current_level_map;
 };
 
 

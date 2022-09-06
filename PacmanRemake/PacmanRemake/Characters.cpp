@@ -140,6 +140,7 @@ void Characters::Update(float deltaTime, SDL_Event e)
 			m_position.x = 0;
 		}
 	}
+
 }
 
 void Characters::SetAlive(bool isAlive)
@@ -193,6 +194,13 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			break;
 		}
 		break;
+	}
+
+	int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
+	int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
+	if (m_current_level_map->GetTileAt(foot_position, centralX_position) == 1)
+	{
+		m_position.y -= 1;
 	}
 	Characters::Update(deltaTime, e);
 }
