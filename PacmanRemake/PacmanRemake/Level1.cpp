@@ -30,7 +30,7 @@ void Level1::SetLevelMap()
 
 bool Level1::SetUpLevel()
 {
-	/*SetLevelMap();*/
+	SetLevelMap();
 
 	m_background_yPos = 0.0f;
 
@@ -63,6 +63,7 @@ void Level1::Render()
 void Level1::Update(float deltaTime, SDL_Event e)
 {
 	Pacman_Character->PacmanUpdate(deltaTime, e);
+	Pacman_Character->HitWall(true);
 }
 
 Level1::~Level1()

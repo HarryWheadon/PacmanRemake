@@ -113,8 +113,7 @@ void Characters::Update(float deltaTime, SDL_Event e)
 				m_current_frame = 0;
 		}
 	}
-
-	if (m_current_frame > 1)
+	else
 	{
 		if (m_frame_delay <= 0.0f)
 		{
@@ -129,6 +128,18 @@ void Characters::Update(float deltaTime, SDL_Event e)
 				m_current_frame = 2;
 		}
 	}
+
+	if (GetHitWall() == true)
+	{
+		if (m_position.x < -100)
+		{
+			m_position.x = 1000;
+		}
+		else if (m_position.x > 1000)
+		{
+			m_position.x = 0;
+		}
+	}
 }
 
 void Characters::SetAlive(bool isAlive)
@@ -140,8 +151,6 @@ void Characters::HitWall(bool Hitwall)
 {
 	hitwall = Hitwall;
 }
-
-
 
 CharacterPacman::CharacterPacman(SDL_Renderer* renderer, string imagePath, Vector2D startposition, LevelMap* map) : Characters(renderer, imagePath, startposition, map)
 {
@@ -163,7 +172,9 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			break;
 		case SDLK_d:
 			m_moving_right = true;
-			m_moving_left, m_moving_up m_moving_down = false;
+			m_moving_left = false;
+			m_moving_up = false;
+			m_moving_down = false;
 			m_current_frame = 0;
 			break;
 		case SDLK_w:

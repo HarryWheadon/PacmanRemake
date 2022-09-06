@@ -35,12 +35,13 @@ public:
 	~Characters();
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
-	bool GetHitWall() { return hitwall; }
-	void HitWall(bool hitwall);
 
 	FACING m_facing_direction;
 	bool GetAlive() { return m_alive; }
 	void SetAlive(bool isAlive);
+
+	bool GetHitWall() { return hitwall; }
+	void HitWall(bool hitwall);
 private:
 	LevelMap* m_current_level_map;
 };
