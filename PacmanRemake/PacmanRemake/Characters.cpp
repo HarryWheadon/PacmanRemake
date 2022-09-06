@@ -49,7 +49,7 @@ Characters::~Characters()
 
 void Characters::Render()
 {
-	m_single_sprite_w = m_texture->GetWidth() / 2;
+	m_single_sprite_w = m_texture->GetWidth() / 4;
 	m_single_sprite_h = m_texture->GetHeight();
 
 	SDL_Rect portion_of_sprite = { m_single_sprite_w * m_current_frame,0,m_single_sprite_w, m_single_sprite_h };
@@ -98,18 +98,37 @@ void Characters::Update(float deltaTime, SDL_Event e)
 
 	m_frame_delay -= deltaTime;
 
-	if (m_frame_delay <= 0.0f)
+	if (m_current_frame == 0)
 	{
-		//reset frame delay count
-		m_frame_delay = ANIMATION_DELAY;
+		if (m_frame_delay <= 0.0f)
+		{
+			//reset frame delay count
+			m_frame_delay = ANIMATION_DELAY;
 
-		//move the frame over
-		m_current_frame++;
+			//move the frame over
+			m_current_frame++;
 
-		//loop frame around if it goes beyond the number of frames
-		if (m_current_frame > 1)
-			m_current_frame = 0;
-	}	
+			//loop frame around if it goes beyond the number of frames
+			if (m_current_frame > 1)
+				m_current_frame = 0;
+		}
+	}
+
+	if (m_current_frame == 2)
+	{
+		if (m_frame_delay <= 0.0f)
+		{
+			//reset frame delay count
+			m_frame_delay = ANIMATION_DELAY;
+
+			//move the frame over
+			m_current_frame++;
+
+			//loop frame around if it goes beyond the number of frames
+			if (m_current_frame > 3)
+				m_current_frame = 2;
+		}
+	}
 }
 
 void Characters::SetAlive(bool isAlive)
@@ -137,15 +156,19 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		{
 		case SDLK_a:
 			m_moving_left = true;
+			m_current_frame = 0;
 			break;
 		case SDLK_d:
 			m_moving_right = true;
+			m_current_frame = 0;
 			break;
 		case SDLK_w:
 			m_moving_up = true;
+			m_current_frame = 2;
 			break;
 		case SDLK_s:
 			m_moving_down = true;
+			m_current_frame = 2;
 			break;
 		}
 		break;
