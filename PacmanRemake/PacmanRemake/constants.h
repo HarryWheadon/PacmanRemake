@@ -5,4 +5,4 @@
 #define MOVEMENTSPEED 600.0f
 #define MAP_HEIGHT 13
 #define MAP_WIDTH 32
-#define ANIMATION_DELAY 0.10f
+#define ANIMATION_DELAY 0.20f

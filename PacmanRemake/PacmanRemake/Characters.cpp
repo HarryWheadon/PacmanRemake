@@ -98,7 +98,7 @@ void Characters::Update(float deltaTime, SDL_Event e)
 
 	m_frame_delay -= deltaTime;
 
-	if (m_current_frame == 0)
+	if (m_current_frame < 2)
 	{
 		if (m_frame_delay <= 0.0f)
 		{
@@ -114,7 +114,7 @@ void Characters::Update(float deltaTime, SDL_Event e)
 		}
 	}
 
-	if (m_current_frame == 2)
+	if (m_current_frame > 1)
 	{
 		if (m_frame_delay <= 0.0f)
 		{
@@ -156,36 +156,29 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		{
 		case SDLK_a:
 			m_moving_left = true;
+			m_moving_up = false;
+			m_moving_down = false;
+			m_moving_right = false;
 			m_current_frame = 0;
 			break;
 		case SDLK_d:
 			m_moving_right = true;
+			m_moving_left, m_moving_up m_moving_down = false;
 			m_current_frame = 0;
 			break;
 		case SDLK_w:
 			m_moving_up = true;
+			m_moving_down = false;
+			m_moving_right = false;
+			m_moving_left = false;
 			m_current_frame = 2;
 			break;
 		case SDLK_s:
 			m_moving_down = true;
-			m_current_frame = 2;
-			break;
-		}
-		break;
-	case SDL_KEYUP:
-		switch (e.key.keysym.sym)
-		{
-		case SDLK_a:
-			m_moving_left = false;
-			break;
-		case SDLK_d:
 			m_moving_right = false;
-			break;
-		case SDLK_w:
+			m_moving_left = false;
 			m_moving_up = false;
-			break;
-		case SDLK_s:
-			m_moving_down = false;
+			m_current_frame = 2;
 			break;
 		}
 		break;
