@@ -208,9 +208,9 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 	int left_position = (int)(m_position.x + m_single_sprite_w) / TILE_WIDTH;
 	int right_position = (int)(m_position.x - m_single_sprite_w) * TILE_WIDTH;
 	if (m_current_level_map->GetTileAt(centralY_position, left_position) == 1)
-		m_position.x -= 0.1;
+		m_position.x -= 1;
 	if (m_current_level_map->GetTileAt(centralY_position, right_position) == 1)
-		m_position.x += 0.1;
+		m_position.x += 1;
 	Characters::Update(deltaTime, e);
 }
 
