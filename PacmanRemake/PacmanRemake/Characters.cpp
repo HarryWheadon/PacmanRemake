@@ -1,4 +1,5 @@
 #include "Characters.h"
+
 void Characters::MoveLeft(float deltaTime)
 {
 	m_facing_direction = FACING_LEFT;
@@ -148,6 +149,16 @@ void Characters::SetAlive(bool isAlive)
 	m_alive = isAlive;
 }
 
+float Characters::GetCollisionRadius()
+{
+	return 10.0f;
+}
+
+Vector2D Characters::GetPosition()
+{
+	return m_position;
+}
+
 void Characters::HitWall(bool Hitwall)
 {
 	hitwall = Hitwall;
@@ -196,7 +207,10 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		break;
 	}
 
-	int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
+	Characters::Update(deltaTime, e);
+}
+
+/*	int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
 	int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
 	int head_position = (int)(m_position.y - m_texture->GetHeight()) * TILE_HEIGHT;
 	if (m_current_level_map->GetTileAt(foot_position, centralX_position) == 1)
@@ -211,18 +225,4 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		m_position.x -= 1;
 	if (m_current_level_map->GetTileAt(centralY_position, right_position) == 1)
 		m_position.x += 1;
-	Characters::Update(deltaTime, e);
-}
-
-
-
-
-
-
-//int centralY_position = (int)(m_position.y + m_texture->GetHeight());
-//int left_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) * TILE_WIDTH;
-//int right_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
-//if (m_current_level_map->GetTileAt(centralY_position, left_position) == 1)
-//m_position.x -= 1;
-//if (m_current_level_map->GetTileAt(centralY_position, right_position) == 1)
-//m_position.x += 1;
+*/

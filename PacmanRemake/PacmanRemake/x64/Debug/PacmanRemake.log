@@ -1,2 +1,29 @@
-﻿  Source.cpp
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\PacmanRemake\Source.cpp(1,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+﻿Source.obj : error LNK2019: unresolved external symbol SDL_GetError referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Texture.obj : error LNK2001: unresolved external symbol SDL_GetError
+Source.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_DestroyWindow referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function "bool __cdecl Update(void)" (?Update@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_CreateRenderer referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_SetRenderDrawColor referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_RenderClear referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_RenderPresent referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_DestroyRenderer referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_GetTicks referenced in function "bool __cdecl Update(void)" (?Update@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol IMG_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol IMG_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Texture.obj : error LNK2019: unresolved external symbol SDL_MapRGB referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_FreeSurface referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_SetColorKey referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_CreateTextureFromSurface referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_RenderCopyEx referenced in function "public: void __cdecl Texture::Render(struct SDL_Rect,struct SDL_Rect,enum SDL_RendererFlip,double)" (?Render@Texture@@QEAAXUSDL_Rect@@0W4SDL_RendererFlip@@N@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_DestroyTexture referenced in function "public: void __cdecl Texture::RemoveTexture(void)" (?RemoveTexture@Texture@@QEAAXXZ)
+Texture.obj : error LNK2019: unresolved external symbol IMG_Load referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2test.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\x64\Debug\PacmanRemake.exe : fatal error LNK1120: 22 unresolved externals
