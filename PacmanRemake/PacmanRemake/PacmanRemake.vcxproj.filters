@@ -42,23 +42,9 @@
     <ClCompile Include="Collisions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="SDL2\SDL\SDL2.lib">
+    <ClCompile Include="CharacterCoin.cpp">
       <Filter>Source Files</Filter>
-    </Library>
-    <Library Include="SDL2\SDL\SDL2_image.lib">
-      <Filter>Source Files</Filter>
-    </Library>
-    <Library Include="SDL2\SDL\SDL2_mixer.lib">
-      <Filter>Source Files</Filter>
-    </Library>
-    <Library Include="SDL2\SDL\SDL2main.lib">
-      <Filter>Source Files</Filter>
-    </Library>
-    <Library Include="SDL2\SDL\SDL2test.lib">
-      <Filter>Source Files</Filter>
-    </Library>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h">
@@ -91,5 +77,15 @@
     <ClInclude Include="Collisions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterCoin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2.lib" />
+    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_image.lib" />
+    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_mixer.lib" />
+    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2main.lib" />
+    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2test.lib" />
   </ItemGroup>
 </Project>

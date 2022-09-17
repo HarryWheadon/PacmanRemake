@@ -36,6 +36,17 @@ bool Level1::SetUpLevel()
 {
 	SetLevelMap();
 
+	for (int x = 0; x < MAP_WIDTH; x++)
+	{
+		for (int y = 0; y < MAP_HEIGHT; y++)
+		{
+			if (m_level_map->GetTileAt((x * TILE_WIDTH), (y * TILE_HEIGHT) == 0))
+			{
+				CreateCoin(Vector2D((x * TILE_WIDTH), (y * TILE_HEIGHT)));
+			}
+		}
+	}
+
 	m_background_yPos = 0.0f;
 
 	Pacman_Character = new CharacterPacman(m_renderer, "Images/PacmanAnimation2.png", Vector2D(64, 330), m_level_map);
@@ -62,16 +73,51 @@ void Level1::Render()
 	//draw the background
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE, 0.0);
 	Pacman_Character->Render();
+
+	for (int i = 0; i < m_coins.size(); i++)
+	{
+		m_coins[i]->Render();
+	}
 }
 
 void Level1::Update(float deltaTime, SDL_Event e)
 {
 	Pacman_Character->PacmanUpdate(deltaTime, e);
 	Pacman_Character->HitWall(true);
+	UpdateCoins(deltaTime, e);
 }
 
 Level1::~Level1()
 {
 	delete m_background_texture;
 	m_background_texture = nullptr;
+}
+
+void Level1::CreateCoin(Vector2D position)
+{
+	Coin_Character = new CharacterCoin(m_renderer, "Images/Coin.png", position, m_level_map);
+	m_coins.push_back(Coin_Character);
+}
+
+void Level1::UpdateCoins(float deltaTime, SDL_Event e)
+{
+	if (!m_coins.empty())
+	{
+		int enemyIndexToDelete = -1;
+		for (unsigned int i = 0; i < m_coins.size(); i++)
+		{
+			//check to see if player collides with a coin
+			if (Collisions::Instance()->Circle(m_coins[i], Pacman_Character))
+				m_coins[i]->SetAlive(false);
+
+			if (!m_coins[i]->GetAlive())
+			{
+				enemyIndexToDelete = i;
+			}
+			if (enemyIndexToDelete != -1)
+			{
+				m_coins.erase(m_coins.begin() + enemyIndexToDelete);
+			}
+		}
+	}
 }

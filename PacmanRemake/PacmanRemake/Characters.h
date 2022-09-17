@@ -43,6 +43,8 @@ public:
 	bool GetAlive() { return m_alive; }
 	void SetAlive(bool isAlive);
 
+	float GetCollisionRadius();
+	Vector2D GetPosition();
 	bool GetHitWall() { return hitwall; }
 	void HitWall(bool hitwall);
 private:
