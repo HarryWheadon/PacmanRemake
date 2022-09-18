@@ -151,7 +151,7 @@ void Characters::SetAlive(bool isAlive)
 
 float Characters::GetCollisionRadius()
 {
-	return 10.0f;
+	return 8.0f;
 }
 
 Vector2D Characters::GetPosition()
@@ -206,23 +206,48 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		}
 		break;
 	}
-
+	for (int x = 0; x < MAP_WIDTH; x++)
+	{
+		for (int y = 0; y < MAP_HEIGHT; y++)
+		{
+			if (m_current_level_map->GetTileAt(y,x))
+			{
+				if (Collisions::Instance()->Box(GetCollisionBox(), Rect2D(x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH + 16, TILE_HEIGHT + 16)))
+				{
+					switch(m_facing_direction)
+					{ 
+		            case FACING_LEFT:
+						m_position.x += 1;
+						break;
+					case FACING_RIGHT:
+						m_position.x -= 1;
+						break;
+					case FACING_UP:
+						m_position.y += 1;
+						break;
+					case FACING_DOWN:
+						m_position.y -= 1;
+						break;
+					}
+				}
+			}
+		}
+	}
 	Characters::Update(deltaTime, e);
 }
 
-/*	int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
-	int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
-	int head_position = (int)(m_position.y - m_texture->GetHeight()) * TILE_HEIGHT;
-	if (m_current_level_map->GetTileAt(foot_position, centralX_position) == 1)
-		m_position.y -= 1;
-	if (m_current_level_map->GetTileAt(head_position, centralX_position) == 1)
-		m_position.y += 1;
+//int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
+//int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
+//int head_position = (int)(m_position.y - m_texture->GetHeight()) * TILE_HEIGHT;
 
-	int centralY_position = (int)(m_position.y + (m_single_sprite_h) * 0.5) / TILE_HEIGHT;
-	int left_position = (int)(m_position.x + m_single_sprite_w) / TILE_WIDTH;
-	int right_position = (int)(m_position.x - m_single_sprite_w) * TILE_WIDTH;
-	if (m_current_level_map->GetTileAt(centralY_position, left_position) == 1)
-		m_position.x -= 1;
-	if (m_current_level_map->GetTileAt(centralY_position, right_position) == 1)
-		m_position.x += 1;
-*/
+//int centralY_position = (int)(m_position.y + (m_single_sprite_h) * 0.5) / TILE_HEIGHT;
+//int left_position = (int)(m_position.x + m_single_sprite_w) / TILE_WIDTH;
+//int right_position = (int)(m_position.x - m_single_sprite_w) * TILE_WIDTH;
+//if (m_current_level_map->GetTileAt(centralY_position, left_position))
+//	m_position.x -= 1;
+//else if (m_current_level_map->GetTileAt(centralY_position, right_position))
+//	m_position.x += 1;
+//else if (m_current_level_map->GetTileAt(foot_position, centralX_position))
+//	m_position.y -= 1;
+//else if (m_current_level_map->GetTileAt(head_position, centralX_position))
+//	m_position.y += 1;

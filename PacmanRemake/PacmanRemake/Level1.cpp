@@ -1,26 +1,27 @@
 #include "Level1.h"
+#include "ScreenManager.h"
 
 
 
 void Level1::SetLevelMap()
 {
-	int map[MAP_HEIGHT][MAP_WIDTH] = { { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-									   { 1,0,0,0,0,0,0,1,0,0,0,0,0,0,1},
-									   { 1,0,1,1,0,1,0,1,0,1,0,1,1,0,1},
-									   { 1,0,1,1,0,0,0,0,0,0,0,1,1,0,1},
-									   { 1,0,0,0,0,1,1,1,1,1,0,0,0,0,1},
-									   { 1,0,1,1,0,0,0,1,0,0,0,1,1,0,1},
-									   { 1,0,0,0,0,1,0,1,0,1,0,0,0,0,1},
-									   { 1,1,1,1,0,0,0,0,0,0,0,1,1,1,1},
-									   { 1,0,0,0,0,1,0,0,0,1,0,0,0,0,1},
-									   { 1,1,1,1,0,1,1,1,1,1,0,1,1,1,1},
-									   { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-									   { 1,0,1,1,0,1,1,1,1,1,0,1,1,0,1},
-		                               { 1,0,1,0,0,0,1,1,1,0,0,0,1,0,1},
-		                               { 1,0,0,0,1,0,0,1,0,0,1,0,0,0,1},
-		                               { 1,0,1,1,1,1,0,1,0,1,1,1,1,0,1},
-		                               { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-									   { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
+	int map[MAP_HEIGHT][MAP_WIDTH] = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+									   {1,0,0,0,0,0,0,1,0,0,0,0,0,0,1},
+									   {1,0,1,1,0,1,0,1,0,1,0,1,1,0,1},
+									   {1,0,1,1,0,0,0,0,0,0,0,1,1,0,1},
+									   {1,0,0,0,0,1,1,1,1,1,0,0,0,0,1},
+									   {1,0,1,1,0,0,0,1,0,0,0,1,1,0,1},
+									   {1,0,0,0,0,1,0,1,0,1,0,0,0,0,1},
+									   {1,1,1,1,0,0,0,0,0,0,0,1,1,1,1},
+									   {1,0,0,0,0,1,0,0,0,1,0,0,0,0,1},
+									   {1,1,1,1,0,1,1,1,1,1,0,1,1,1,1},
+									   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+									   {1,0,1,1,0,1,1,1,1,1,0,1,1,0,1},
+		                               {1,0,1,0,0,0,1,1,1,0,0,0,1,0,1},
+		                               {1,0,0,0,1,0,0,1,0,0,1,0,0,0,1},
+		                               {1,0,1,1,1,1,0,1,0,1,1,1,1,0,1},
+		                               {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+									   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
 
 	//clear any old maps
 	if (m_level_map != nullptr)
@@ -40,7 +41,7 @@ bool Level1::SetUpLevel()
 	{
 		for (int y = 0; y < MAP_HEIGHT; y++)
 		{
-			if (m_level_map->GetTileAt((x * TILE_WIDTH), (y * TILE_HEIGHT) == 0))
+			if (!m_level_map->GetTileAt((y), (x)))
 			{
 				CreateCoin(Vector2D((x * TILE_WIDTH), (y * TILE_HEIGHT)));
 			}
@@ -85,6 +86,12 @@ void Level1::Update(float deltaTime, SDL_Event e)
 	Pacman_Character->PacmanUpdate(deltaTime, e);
 	Pacman_Character->HitWall(true);
 	UpdateCoins(deltaTime, e);
+
+	if (!m_coins.size())
+	{
+		ScreenManager::ChangeScreen(SCREEN_LEVEL2);
+    }
+
 }
 
 Level1::~Level1()
@@ -108,16 +115,19 @@ void Level1::UpdateCoins(float deltaTime, SDL_Event e)
 		{
 			//check to see if player collides with a coin
 			if (Collisions::Instance()->Circle(m_coins[i], Pacman_Character))
+			{ 
 				m_coins[i]->SetAlive(false);
-
+				m_score += 5;
+				cout << m_score << endl;
+			}
 			if (!m_coins[i]->GetAlive())
 			{
 				enemyIndexToDelete = i;
 			}
-			if (enemyIndexToDelete != -1)
-			{
-				m_coins.erase(m_coins.begin() + enemyIndexToDelete);
-			}
+		}
+		if (enemyIndexToDelete != -1)
+		{
+			m_coins.erase(m_coins.begin() + enemyIndexToDelete);
 		}
 	}
 }

@@ -21,6 +21,7 @@ public:
 	void Render() override;
 	void Update(float deltaTime, SDL_Event e) override;
 
+	int m_score;
 private:
 	Texture* m_background_texture;
 	LevelMap* m_level_map;
