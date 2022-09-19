@@ -79,6 +79,34 @@ void Characters::Render()
 void Characters::Update(float deltaTime, SDL_Event e)
 {
 
+	for (int x = 0; x < MAP_WIDTH; x++)
+	{
+		for (int y = 0; y < MAP_HEIGHT; y++)
+		{
+			if (m_current_level_map->GetTileAt(y, x))
+			{
+				if (Collisions::Instance()->Box(GetCollisionBox(), Rect2D(x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH + 16, TILE_HEIGHT + 16)))
+				{
+					switch (m_facing_direction)
+					{
+					case FACING_LEFT:
+						m_position.x += 1;
+						break;
+					case FACING_RIGHT:
+						m_position.x -= 1;
+						break;
+					case FACING_UP:
+						m_position.y += 1;
+						break;
+					case FACING_DOWN:
+						m_position.y -= 1;
+						break;
+					}
+				}
+			}
+		}
+	}
+
 	if (m_moving_left)
 	{
 		MoveLeft(deltaTime);
@@ -205,33 +233,6 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			break;
 		}
 		break;
-	}
-	for (int x = 0; x < MAP_WIDTH; x++)
-	{
-		for (int y = 0; y < MAP_HEIGHT; y++)
-		{
-			if (m_current_level_map->GetTileAt(y,x))
-			{
-				if (Collisions::Instance()->Box(GetCollisionBox(), Rect2D(x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH + 16, TILE_HEIGHT + 16)))
-				{
-					switch(m_facing_direction)
-					{ 
-		            case FACING_LEFT:
-						m_position.x += 1;
-						break;
-					case FACING_RIGHT:
-						m_position.x -= 1;
-						break;
-					case FACING_UP:
-						m_position.y += 1;
-						break;
-					case FACING_DOWN:
-						m_position.y -= 1;
-						break;
-					}
-				}
-			}
-		}
 	}
 	Characters::Update(deltaTime, e);
 }

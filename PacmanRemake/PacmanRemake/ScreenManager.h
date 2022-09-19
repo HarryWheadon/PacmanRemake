@@ -5,6 +5,7 @@
 #include "GameScreen.h"
 #include "Commons.h"
 #include "constants.h"
+
 class ScreenManager
 {
 public:

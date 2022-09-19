@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
@@ -6,13 +7,13 @@
 #include "ScreenManager.h"
 using namespace std;
 //Globals
+
+
 SDL_Window* g_window = nullptr;
 SDL_Renderer* g_renderer = nullptr;
 SDL_Texture* g_texture = nullptr;
 Uint32 g_time;
 ScreenManager* screen_manager;
-
-
 
 void Render()
 {
