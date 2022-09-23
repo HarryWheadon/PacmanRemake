@@ -38,7 +38,8 @@ public:
 	~Characters();
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
-	Rect2D GetCollisionBox() { return Rect2D(m_position.x, m_position.y, m_texture->GetWidth() / 4, m_texture->GetHeight()); }
+	Rect2D GetCollisionBox() { return Rect2D(m_position.x, m_position.y, m_single_sprite_w, m_single_sprite_h); }
+
 
 	FACING m_facing_direction;
 	bool GetAlive() { return m_alive; }

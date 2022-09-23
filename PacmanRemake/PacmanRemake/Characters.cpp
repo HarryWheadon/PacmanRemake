@@ -2,7 +2,7 @@
 
 void Characters::MoveLeft(float deltaTime)
 {
-	m_facing_direction = FACING_LEFT;
+    m_facing_direction = FACING_LEFT;
 	m_position.x -= deltaTime * MOVEMENTSPEED;
 }
 
@@ -39,7 +39,7 @@ Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startP
 
 	m_moving_left = false;
 	m_moving_right = false;
-	m_moving_up = false;
+	m_moving_up = true;
 	m_moving_down = false;
 }
 
@@ -85,7 +85,8 @@ void Characters::Update(float deltaTime, SDL_Event e)
 		{
 			if (m_current_level_map->GetTileAt(y, x))
 			{
-				if (Collisions::Instance()->Box(GetCollisionBox(), Rect2D(x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH + 16, TILE_HEIGHT + 16)))
+				Rect2D TempTile((x * TILE_WIDTH), (y * TILE_HEIGHT), TILE_WIDTH, TILE_HEIGHT);
+				if (Collisions::Instance()->Box(GetCollisionBox(), TempTile))
 				{
 					switch (m_facing_direction)
 					{
@@ -107,24 +108,22 @@ void Characters::Update(float deltaTime, SDL_Event e)
 		}
 	}
 
-	if (m_moving_left)
-	{
-		MoveLeft(deltaTime);
-	}
-	if (m_moving_right)
-	{
-		MoveRight(deltaTime);
-	}
-	if (m_moving_up)
-	{
-		MoveUp(deltaTime);
-	}
-	if (m_moving_down)
-	{
-		MoveDown(deltaTime);
-	}
-
-
+	//if (m_moving_left)
+	//{
+	//	MoveLeft(deltaTime);
+	//}
+	//if (m_moving_right)
+	//{
+	//	MoveRight(deltaTime);
+	//}
+	//if (m_moving_up)
+	//{
+	//	MoveUp(deltaTime);
+	//}
+	//if (m_moving_down)
+	//{
+	//	MoveDown(deltaTime);
+	//}
 	m_frame_delay -= deltaTime;
 
 	if (m_current_frame < 2)
@@ -198,12 +197,23 @@ CharacterPacman::CharacterPacman(SDL_Renderer* renderer, string imagePath, Vecto
 
 void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 {
+	int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
+	int centralY_position = (int)(m_position.y + (m_single_sprite_h) * 0.5) / TILE_HEIGHT;
+	int head_position = (int)(m_position.y - m_texture->GetHeight()) * TILE_HEIGHT;
+	int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
+	int left_position = (int)(m_position.x + m_single_sprite_w) / TILE_WIDTH;
+	int right_position = (int)(m_position.x - m_single_sprite_w) * TILE_WIDTH;
 	switch (e.type)
 	{
 	case SDL_KEYDOWN:
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_a:
+			//if (!m_current_level_map->GetTileAt(centralY_position, left_position - 1))
+			//{
+			do
+			{
+			} while (m_current_level_map->GetTileAt(centralY_position, left_position - 1));
 			m_moving_left = true;
 			m_moving_up = false;
 			m_moving_down = false;
@@ -211,6 +221,11 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			m_current_frame = 0;
 			break;
 		case SDLK_d:
+			//if (!m_current_level_map->GetTileAt(centralY_position, right_position + 1))
+			//{
+			do
+			{
+			} while (m_current_level_map->GetTileAt(centralY_position, right_position + 1));
 			m_moving_right = true;
 			m_moving_left = false;
 			m_moving_up = false;
@@ -218,6 +233,9 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			m_current_frame = 0;
 			break;
 		case SDLK_w:
+			do
+			{
+			} while (m_current_level_map->GetTileAt(head_position - 1, centralX_position));
 			m_moving_up = true;
 			m_moving_down = false;
 			m_moving_right = false;
@@ -225,6 +243,10 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			m_current_frame = 2;
 			break;
 		case SDLK_s:
+			do
+			{
+			} while (m_current_level_map->GetTileAt(foot_position + 1, centralX_position));
+
 			m_moving_down = true;
 			m_moving_right = false;
 			m_moving_left = false;

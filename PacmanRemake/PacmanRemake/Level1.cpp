@@ -51,9 +51,9 @@ bool Level1::SetUpLevel()
 	m_background_yPos = 0.0f;
 
 	//load textures
-	Pacman_Character = new CharacterPacman(m_renderer, "Images/PacmanAnimation2.png", Vector2D(64, 330), m_level_map);
+	Pacman_Character = new CharacterPacman(m_renderer, "Images/PacmanAnimation2.png", Vector2D(64, 448), m_level_map);
 
-	Ghost_Character = new CharacterGhost(m_renderer, "Images/Ghost.png",m_level_map, Vector2D(64, 330), FACING_RIGHT, MOVEMENTSPEED);
+	Ghost_Character = new CharacterGhost(m_renderer, "Images/Ghost.png",m_level_map, Vector2D(64, 320), FACING_RIGHT, MOVEMENTSPEED);
 
 	m_background_texture = new Texture(m_renderer);
 
@@ -89,7 +89,6 @@ void Level1::Update(float deltaTime, SDL_Event e)
 	Pacman_Character->PacmanUpdate(deltaTime, e);
 	Ghost_Character->Update(deltaTime, e);
 	UpdatePellet(deltaTime, e);
-
 	if (!m_pellets.size())
 	{
 		/*screen_manager->ChangeScreen(SCREEN_LEVEL2);*/
@@ -134,3 +133,4 @@ void Level1::UpdatePellet(float deltaTime, SDL_Event e)
 		}
 	}
 }
+
