@@ -61,7 +61,11 @@ bool Level1::SetUpLevel()
 		for (int y = 0; y < MAP_HEIGHT; y++)
 		{
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			if (m_level_map->GetTileAt((x * TILE_WIDTH), (y * TILE_HEIGHT) == 0))
+=======
+			if (!m_level_map->GetTileAt((y), (x)) || m_level_map->GetTileAt((y), (x)) == 2)
+>>>>>>> Stashed changes
 =======
 			if (!m_level_map->GetTileAt((y), (x)) || m_level_map->GetTileAt((y), (x)) == 2)
 >>>>>>> Stashed changes
@@ -116,8 +120,11 @@ void Level1::Update(float deltaTime, SDL_Event e)
 	Pacman_Character->PacmanUpdate(deltaTime, e);
 	Pacman_Character->HitWall(true);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	UpdateCoins(deltaTime, e);
 =======
+=======
+>>>>>>> Stashed changes
 	Ghost_Character->Update(deltaTime, e);
 	UpdatePellet(deltaTime, e);
 	if (!m_pellets.size())

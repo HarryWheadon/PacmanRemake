@@ -39,7 +39,11 @@ Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startP
 
 	m_moving_left = false;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	m_moving_right = false;
+=======
+	m_moving_right = true;
+>>>>>>> Stashed changes
 =======
 	m_moving_right = true;
 >>>>>>> Stashed changes
@@ -96,11 +100,15 @@ void Characters::Update(float deltaTime, SDL_Event e)
 	{
 		MoveUp(deltaTime);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 	}
 	if (m_moving_down)
 	{
 		MoveDown(deltaTime);
 	}
+<<<<<<< Updated upstream
 
 
 =======
@@ -109,6 +117,8 @@ void Characters::Update(float deltaTime, SDL_Event e)
 	{
 		MoveDown(deltaTime);
 	}
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	m_frame_delay -= deltaTime;
 
@@ -270,6 +280,7 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		{
 		case SDLK_a:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			m_moving_left = true;
 			m_moving_up = false;
 			m_moving_down = false;
@@ -308,6 +319,18 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		case SDLK_s:
 			m_turn_direction = TURN_DOWN;
 >>>>>>> Stashed changes
+=======
+			m_turn_direction = TURN_LEFT;
+			break;
+		case SDLK_d:
+			m_turn_direction = TURN_RIGHT;
+			break;
+		case SDLK_w:
+			m_turn_direction = TURN_UP;
+			break;
+		case SDLK_s:
+			m_turn_direction = TURN_DOWN;
+>>>>>>> Stashed changes
 			break;
 		}
 		break;
@@ -315,6 +338,7 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 
 	Characters::Update(deltaTime, e);
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
 /*	int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
@@ -333,5 +357,7 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 	if (m_current_level_map->GetTileAt(centralY_position, right_position) == 1)
 		m_position.x += 1;
 */
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

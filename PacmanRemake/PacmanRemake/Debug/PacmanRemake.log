@@ -19,5 +19,8 @@ C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemak
 C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(62,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(158,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(158,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   PacmanRemake.vcxproj -> C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe
