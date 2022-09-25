@@ -4,6 +4,7 @@
 
 void Level1::SetLevelMap()
 {
+<<<<<<< Updated upstream
 	int map[MAP_HEIGHT][MAP_WIDTH] = { { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 									   { 1,0,0,0,0,0,0,1,0,0,0,0,0,0,1},
 									   { 1,0,1,1,0,1,0,1,0,1,0,1,1,0,1},
@@ -21,6 +22,25 @@ void Level1::SetLevelMap()
 		                               { 1,0,1,1,1,1,0,1,0,1,1,1,1,0,1},
 		                               { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 									   { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
+=======
+	int map[MAP_HEIGHT][MAP_WIDTH] = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+									   {1,0,0,0,0,0,0,1,0,0,0,0,0,0,1},
+									   {1,0,1,1,0,1,0,1,0,1,0,1,1,0,1},
+									   {1,0,1,1,0,0,0,0,0,0,0,1,1,0,1},
+									   {1,0,0,0,0,1,1,1,1,1,0,0,0,0,1},
+									   {1,0,1,1,0,0,0,1,0,0,0,1,1,0,1},
+									   {1,0,0,0,0,1,0,1,0,1,0,0,0,0,1},
+									   {1,1,1,1,0,0,0,0,0,0,0,1,1,1,1},
+									   {0,0,0,0,0,1,1,1,1,1,0,0,0,0,0},
+									   {1,1,1,1,0,1,1,1,1,1,0,1,1,1,1},
+									   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+									   {1,0,1,1,0,1,1,1,1,1,0,1,1,0,1},
+		                               {1,0,1,0,0,0,1,1,1,0,0,0,1,0,1},
+		                               {1,0,0,0,1,0,0,1,0,0,1,0,0,0,1},
+		                               {1,0,1,1,1,1,0,1,0,1,1,1,1,0,1},
+		                               {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+									   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
+>>>>>>> Stashed changes
 
 	//clear any old maps
 	if (m_level_map != nullptr)
@@ -40,7 +60,11 @@ bool Level1::SetUpLevel()
 	{
 		for (int y = 0; y < MAP_HEIGHT; y++)
 		{
+<<<<<<< Updated upstream
 			if (m_level_map->GetTileAt((x * TILE_WIDTH), (y * TILE_HEIGHT) == 0))
+=======
+			if (!m_level_map->GetTileAt((y), (x)) || m_level_map->GetTileAt((y), (x)) == 2)
+>>>>>>> Stashed changes
 			{
 				CreateCoin(Vector2D((x * TILE_WIDTH), (y * TILE_HEIGHT)));
 			}
@@ -49,12 +73,19 @@ bool Level1::SetUpLevel()
 
 	m_background_yPos = 0.0f;
 
+<<<<<<< Updated upstream
 	Pacman_Character = new CharacterPacman(m_renderer, "Images/PacmanAnimation2.png", Vector2D(64, 330), m_level_map);
 	//load texture
+=======
+	//load textures
+	Pacman_Character = new CharacterPacman(m_renderer, "Images/PacmanAnimation2.png", Vector2D(64, 480), m_level_map);
+
+	Ghost_Character = new CharacterGhost(m_renderer, "Images/Ghost.png",m_level_map, Vector2D(64, 320), FACING_RIGHT, MOVEMENTSPEED);
+>>>>>>> Stashed changes
 
 	m_background_texture = new Texture(m_renderer);
 
-	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackground1.png"))
+	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackground.png"))
 	{
 		std::cout << " Failed to load background texture!" << std::endl;
 		return false;
@@ -84,7 +115,17 @@ void Level1::Update(float deltaTime, SDL_Event e)
 {
 	Pacman_Character->PacmanUpdate(deltaTime, e);
 	Pacman_Character->HitWall(true);
+<<<<<<< Updated upstream
 	UpdateCoins(deltaTime, e);
+=======
+	Ghost_Character->Update(deltaTime, e);
+	UpdatePellet(deltaTime, e);
+	if (!m_pellets.size())
+	{
+		/*screen_manager->ChangeScreen(SCREEN_LEVEL2);*/
+    }
+
+>>>>>>> Stashed changes
 }
 
 Level1::~Level1()

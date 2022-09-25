@@ -35,6 +35,14 @@ enum FACING
 	FACING_DOWN
 };
 
+enum TURN
+{
+	TURN_LEFT,
+	TURN_RIGHT,
+	TURN_UP,
+	TURN_DOWN
+};
+
 struct Rect2D
 {
 	float x;
