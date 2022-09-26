@@ -42,15 +42,8 @@ public:
 	~Characters();
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 	void UpdateCollision(float deltaTime, SDL_Event e);
 	Rect2D GetCollisionBox() { return Rect2D(m_position.x, m_position.y, m_single_sprite_w, m_single_sprite_h); }
-
->>>>>>> Stashed changes
 
 	TURN m_turn_direction;
 	FACING m_facing_direction;

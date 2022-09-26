@@ -38,15 +38,7 @@ Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startP
 	}
 
 	m_moving_left = false;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 	m_moving_right = false;
-=======
-	m_moving_right = true;
->>>>>>> Stashed changes
-=======
-	m_moving_right = true;
->>>>>>> Stashed changes
 	m_moving_up = false;
 	m_moving_down = false;
 }
@@ -99,27 +91,12 @@ void Characters::Update(float deltaTime, SDL_Event e)
 	if (m_moving_up)
 	{
 		MoveUp(deltaTime);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 	}
 	if (m_moving_down)
 	{
 		MoveDown(deltaTime);
 	}
-<<<<<<< Updated upstream
 
-
-=======
-	}
-	if (m_moving_down)
-	{
-		MoveDown(deltaTime);
-	}
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	m_frame_delay -= deltaTime;
 
 	if (m_current_frame < 2)
@@ -173,7 +150,7 @@ void Characters::UpdateCollision(float deltaTime, SDL_Event e)
 	{
 		for (int y = 0; y < MAP_HEIGHT; y++)
 		{
-			if (m_current_level_map->GetTileAt(y, x) == 1)
+			if (m_current_level_map->GetTileAt(y, x))
 			{
 				Rect2D TempTile((x * TILE_WIDTH), (y * TILE_HEIGHT), TILE_WIDTH, TILE_HEIGHT);
 				if (Collisions::Instance()->Box(GetCollisionBox(), TempTile))
@@ -279,35 +256,6 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_a:
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-			m_moving_left = true;
-			m_moving_up = false;
-			m_moving_down = false;
-			m_moving_right = false;
-			m_current_frame = 0;
-			break;
-		case SDLK_d:
-			m_moving_right = true;
-			m_moving_left = false;
-			m_moving_up = false;
-			m_moving_down = false;
-			m_current_frame = 0;
-			break;
-		case SDLK_w:
-			m_moving_up = true;
-			m_moving_down = false;
-			m_moving_right = false;
-			m_moving_left = false;
-			m_current_frame = 2;
-			break;
-		case SDLK_s:
-			m_moving_down = true;
-			m_moving_right = false;
-			m_moving_left = false;
-			m_moving_up = false;
-			m_current_frame = 2;
-=======
 			m_turn_direction = TURN_LEFT;
 			break;
 		case SDLK_d:
@@ -318,19 +266,6 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 			break;
 		case SDLK_s:
 			m_turn_direction = TURN_DOWN;
->>>>>>> Stashed changes
-=======
-			m_turn_direction = TURN_LEFT;
-			break;
-		case SDLK_d:
-			m_turn_direction = TURN_RIGHT;
-			break;
-		case SDLK_w:
-			m_turn_direction = TURN_UP;
-			break;
-		case SDLK_s:
-			m_turn_direction = TURN_DOWN;
->>>>>>> Stashed changes
 			break;
 		}
 		break;
@@ -338,26 +273,3 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 
 	Characters::Update(deltaTime, e);
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-/*	int centralX_position = (int)(m_position.x + (m_single_sprite_w * m_current_frame) * 0.5) / TILE_WIDTH;
-	int foot_position = (int)(m_position.y + m_texture->GetHeight()) / TILE_HEIGHT;
-	int head_position = (int)(m_position.y - m_texture->GetHeight()) * TILE_HEIGHT;
-	if (m_current_level_map->GetTileAt(foot_position, centralX_position) == 1)
-		m_position.y -= 1;
-	if (m_current_level_map->GetTileAt(head_position, centralX_position) == 1)
-		m_position.y += 1;
-
-	int centralY_position = (int)(m_position.y + (m_single_sprite_h) * 0.5) / TILE_HEIGHT;
-	int left_position = (int)(m_position.x + m_single_sprite_w) / TILE_WIDTH;
-	int right_position = (int)(m_position.x - m_single_sprite_w) * TILE_WIDTH;
-	if (m_current_level_map->GetTileAt(centralY_position, left_position) == 1)
-		m_position.x -= 1;
-	if (m_current_level_map->GetTileAt(centralY_position, right_position) == 1)
-		m_position.x += 1;
-*/
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
