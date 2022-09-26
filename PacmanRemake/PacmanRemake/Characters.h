@@ -27,6 +27,10 @@ protected:
 	bool m_moving_down;
 	bool m_alive;
 	bool hitwall;
+	bool m_left;
+	bool m_right;
+	bool m_up;
+	bool m_down;
 	float m_single_sprite_w;
 	float m_single_sprite_h;
 	float m_current_frame;
@@ -38,7 +42,10 @@ public:
 	~Characters();
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
+	void UpdateCollision(float deltaTime, SDL_Event e);
+	Rect2D GetCollisionBox() { return Rect2D(m_position.x, m_position.y, m_single_sprite_w, m_single_sprite_h); }
 
+	TURN m_turn_direction;
 	FACING m_facing_direction;
 	bool GetAlive() { return m_alive; }
 	void SetAlive(bool isAlive);

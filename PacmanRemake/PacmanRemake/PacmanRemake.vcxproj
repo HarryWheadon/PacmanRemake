@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CharacterCoin.cpp" />
+    <ClCompile Include="CharacterPellet.cpp" />
     <ClCompile Include="CharacterGhost.cpp" />
     <ClCompile Include="Characters.cpp" />
     <ClCompile Include="Collisions.cpp" />
@@ -155,7 +155,7 @@
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CharacterCoin.h" />
+    <ClInclude Include="CharacterPellet.h" />
     <ClInclude Include="CharacterGhost.h" />
     <ClInclude Include="Characters.h" />
     <ClInclude Include="Collisions.h" />
