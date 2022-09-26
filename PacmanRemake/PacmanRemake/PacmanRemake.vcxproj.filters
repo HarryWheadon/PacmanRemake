@@ -42,7 +42,7 @@
     <ClCompile Include="Collisions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterCoin.cpp">
+    <ClCompile Include="CharacterPellet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,7 +77,7 @@
     <ClInclude Include="Collisions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CharacterCoin.h">
+    <ClInclude Include="CharacterPellet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

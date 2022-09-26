@@ -1,7 +1,7 @@
 #pragma once
 #include "GameScreen.h"
 #include "Characters.h"
-#include "CharacterCoin.h"
+#include "CharacterPellet.h"
 #include "Commons.h"
 #include "Texture.h"
 #include "LevelMap.h"
@@ -9,7 +9,7 @@
 #include <iostream>
 
 class Characters;
-class CharacterCoin;
+class CharacterPellet;
 class Texture;
 
 class Level1 : GameScreen
@@ -25,15 +25,15 @@ private:
 	Texture* m_background_texture;
 	LevelMap* m_level_map;
 	CharacterPacman* Pacman_Character;
-	CharacterCoin* Coin_Character;
-	vector<CharacterCoin*> m_coins;
+	CharacterPellet* Pellet_Character;
+	vector<CharacterPellet*> m_pellets;
 
 
 	float m_background_yPos;
 
 
-	void CreateCoin(Vector2D position);
-	void UpdateCoins(float deltaTime, SDL_Event e);
+	void CreatePellet(Vector2D position);
+	void UpdatePellet(float deltaTime, SDL_Event e);
 	void SetLevelMap();
 	bool SetUpLevel();
 };
