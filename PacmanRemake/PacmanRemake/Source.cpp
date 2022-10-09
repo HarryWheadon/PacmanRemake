@@ -126,7 +126,7 @@ int main(int argc, char* args[])
 	//check if sdl was setup correctly
 	if (InitSDL())
 	{
-		screen_manager = new ScreenManager(g_renderer, SCREEN_LEVEL1);
+		screen_manager = new ScreenManager(g_renderer, SCREEN_MENU);
 
 		//set the time
 		g_time = SDL_GetTicks();

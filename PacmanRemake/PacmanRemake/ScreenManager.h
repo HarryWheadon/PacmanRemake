@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include "MainMenu.h"
 #include "Level1.h"
 #include "GameScreen.h"
 #include "Commons.h"

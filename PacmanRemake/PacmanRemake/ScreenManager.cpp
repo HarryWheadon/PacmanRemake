@@ -35,7 +35,10 @@ void ScreenManager::ChangeScreen(SCREENS new_screen)
 
 	if (new_screen == SCREEN_MENU)
 	{
-
+		MainMenu* tempScreen;
+		tempScreen = new MainMenu(m_renderer);
+		m_current_screen = (GameScreen*)tempScreen;
+		tempScreen = nullptr;
 	}
 	else if (new_screen == SCREEN_LEVEL1)
 	{
