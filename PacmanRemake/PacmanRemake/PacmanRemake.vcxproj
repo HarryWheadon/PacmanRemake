@@ -150,6 +150,7 @@
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="LevelMap.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelMap.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
