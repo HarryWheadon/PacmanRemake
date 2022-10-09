@@ -30,17 +30,16 @@ Characters::Characters(SDL_Renderer* renderer, string imagePath, Vector2D startP
 	m_renderer = renderer;
 	m_position = startPosition;
 	m_alive = true;
+	m_moving_left = false;
+	m_moving_right = false;
+	m_moving_up = false;
+	m_moving_down = false;
 
 	m_texture = new Texture(m_renderer);
 	if (!m_texture->LoadTexFromFile(imagePath))
 	{
 		std::cout << "Failed to load Character texture!" << std::endl;
 	}
-
-	m_moving_left = false;
-	m_moving_right = false;
-	m_moving_up = false;
-	m_moving_down = false;
 }
 
 Characters::~Characters()
@@ -78,7 +77,6 @@ void Characters::Render()
 
 void Characters::Update(float deltaTime, SDL_Event e)
 {
-	UpdateCollision(deltaTime, e);
 
 	if (m_moving_left)
 	{
@@ -97,38 +95,38 @@ void Characters::Update(float deltaTime, SDL_Event e)
 		MoveDown(deltaTime);
 	}
 
-	m_frame_delay -= deltaTime;
+	//m_frame_delay -= deltaTime;
 
-	if (m_current_frame < 2)
-	{
-		if (m_frame_delay <= 0.0f)
-		{
-			//reset frame delay count
-			m_frame_delay = ANIMATION_DELAY;
+	//if (m_current_frame < 2)
+	//{
+	//	if (m_frame_delay <= 0.0f)
+	//	{
+	//		//reset frame delay count
+	//		m_frame_delay = ANIMATION_DELAY;
 
-			//move the frame over
-			m_current_frame++;
+	//		//move the frame over
+	//		m_current_frame++;
 
-			//loop frame around if it goes beyond the number of frames
-			if (m_current_frame > 1)
-				m_current_frame = 0;
-		}
-	}
-	else
-	{
-		if (m_frame_delay <= 0.0f)
-		{
-			//reset frame delay count
-			m_frame_delay = ANIMATION_DELAY;
+	//		//loop frame around if it goes beyond the number of frames
+	//		if (m_current_frame > 1)
+	//			m_current_frame = 0;
+	//	}
+	//}
+	//else
+	//{
+	//	if (m_frame_delay <= 0.0f)
+	//	{
+	//		//reset frame delay count
+	//		m_frame_delay = ANIMATION_DELAY;
 
-			//move the frame over
-			m_current_frame++;
+	//		//move the frame over
+	//		m_current_frame++;
 
-			//loop frame around if it goes beyond the number of frames
-			if (m_current_frame > 3)
-				m_current_frame = 2;
-		}
-	}
+	//		//loop frame around if it goes beyond the number of frames
+	//		if (m_current_frame > 3)
+	//			m_current_frame = 2;
+	//	}
+	//}
 
 	if (GetHitWall() == true)
 	{
@@ -150,7 +148,7 @@ void Characters::UpdateCollision(float deltaTime, SDL_Event e)
 	{
 		for (int y = 0; y < MAP_HEIGHT; y++)
 		{
-			if (m_current_level_map->GetTileAt(y, x))
+			if (m_current_level_map->GetTileAt(y, x) == 1)
 			{
 				Rect2D TempTile((x * TILE_WIDTH), (y * TILE_HEIGHT), TILE_WIDTH, TILE_HEIGHT);
 				if (Collisions::Instance()->Box(GetCollisionBox(), TempTile))
@@ -173,7 +171,15 @@ void Characters::UpdateCollision(float deltaTime, SDL_Event e)
 				}
 			}
 
-			if (!m_current_level_map->GetTileAt(y, x))
+		}
+
+	}
+
+	for (int x = 0; x < MAP_WIDTH; x++)
+	{
+		for (int y = 0; y < MAP_HEIGHT; y++)
+		{
+			if (!m_current_level_map->GetTileAt(y, x) || m_current_level_map->GetTileAt(y, x) == 2 || m_current_level_map->GetTileAt(y, x) == 3)
 			{
 				if ((int)m_position.x == (x * TILE_WIDTH) && (int)m_position.y == (y * TILE_HEIGHT) || (int)m_position.x - 3 == (x * TILE_WIDTH) && (int)m_position.y == (y * TILE_HEIGHT)
 					|| (int)m_position.x == (x * TILE_WIDTH) && (int)m_position.y - 3 == (y * TILE_HEIGHT) || (int)m_position.x - 3 == (x * TILE_WIDTH) && (int)m_position.y - 3 == (y * TILE_HEIGHT))
@@ -220,7 +226,6 @@ void Characters::UpdateCollision(float deltaTime, SDL_Event e)
 				}
 			}
 		}
-
 	}
 }
 
@@ -237,6 +242,12 @@ float Characters::GetCollisionRadius()
 Vector2D Characters::GetPosition()
 {
 	return m_position;
+}
+
+void Characters::SetPosition(float Set_Xposition, float Set_Yposition)
+{
+	m_position.x = Set_Xposition;
+	m_position.y = Set_Yposition;
 }
 
 void Characters::HitWall(bool Hitwall)
@@ -271,5 +282,6 @@ void CharacterPacman::PacmanUpdate(float deltaTime, SDL_Event e)
 		break;
 	}
 
+	UpdateCollision(deltaTime, e);
 	Characters::Update(deltaTime, e);
 }

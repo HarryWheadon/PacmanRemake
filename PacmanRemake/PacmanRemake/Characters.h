@@ -51,6 +51,7 @@ public:
 	void SetAlive(bool isAlive);
 
 	float GetCollisionRadius();
+	void SetPosition(float Set_Xposition, float Set_Yposition);
 	Vector2D GetPosition();
 	bool GetHitWall() { return hitwall; }
 	void HitWall(bool hitwall);

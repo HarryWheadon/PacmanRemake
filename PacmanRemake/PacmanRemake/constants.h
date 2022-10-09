@@ -1,10 +1,12 @@
 #pragma once
 //Dimensions
 #define SCREEN_WIDTH 480
-#define SCREEN_HEIGHT 544
+#define SCREEN_HEIGHT 576
 #define MOVEMENTSPEED 200.0f
-#define MAP_HEIGHT 17
+#define LEVEL1_SPEED 100.0f
+#define MAP_HEIGHT 18
 #define MAP_WIDTH 15
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 32
 #define ANIMATION_DELAY 0.20f
+#define TURN_DELAY 0.01f

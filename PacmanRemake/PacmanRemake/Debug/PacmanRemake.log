@@ -1,18 +1,16 @@
-﻿  Characters.cpp
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(53,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(54,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(56,51): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(56,51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(56,71): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(56,71): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(56,90): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(56,90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(58,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(58,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(58,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(58,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(155,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Characters.cpp(155,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Collisions.cpp
-  Generating Code...
+﻿  CharacterGhost.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(10,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(11,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,51): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,71): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,71): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,90): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(52,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(52,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PacmanRemake.vcxproj -> C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe
