@@ -53,7 +53,7 @@ bool InitSDL()
 	}
 
 	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
-
+	TTF_Init();
 	if (g_renderer != nullptr)
 	{
 		//init PNG loading
@@ -82,6 +82,7 @@ void CloseSDL()
 	//quit SDL subsystems
 	IMG_Quit();
 	SDL_Quit();
+	TTF_Quit();
 
 	g_renderer = nullptr;
 	SDL_DestroyRenderer(g_renderer);

@@ -8,6 +8,12 @@ MainMenu::MainMenu(SDL_Renderer* renderer) : GameScreen(renderer)
 	{
 		std::cout << " Failed to load background texture!" << std::endl;
 	}
+
+	TTF_Font* font = TTF_OpenFont("arial.ttf", 25);
+	SDL_Color color = { 255, 255, 255 };
+	SDL_Surface* surface = TTF_RenderText_Solid(font,
+		"Welcome to Gigi Labs", color);
+    
 }
 
 MainMenu::~MainMenu()
@@ -21,7 +27,6 @@ void MainMenu::Render()
 
 	if(changeScreen)
 	screen_manager->Render();
-
 }
 
 void MainMenu::Update(float deltaTime, SDL_Event e)

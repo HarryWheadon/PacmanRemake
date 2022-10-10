@@ -6,6 +6,7 @@
 #include "Commons.h"
 #include "Texture.h"
 #include "LevelMap.h"
+#include "SDL_ttf.h"
 #include <vector>
 #include <iostream>
 

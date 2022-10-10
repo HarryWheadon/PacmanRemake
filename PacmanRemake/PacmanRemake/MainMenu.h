@@ -17,8 +17,9 @@ public:
 	void Update(float deltaTime, SDL_Event e);
 private:
 	Texture* m_background_texture;
+	Texture* m_text;
 	ScreenManager* screen_manager;
-
+  
 	bool changeScreen = false;
 };
 
