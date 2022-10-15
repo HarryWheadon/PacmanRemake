@@ -88,12 +88,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(PROJECTDIR)\SDL2\SDL\mixer_include;$(PROJECTDIR)\SDL2\SDL\image_include;$(PROJECTDIR)\SDL2\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(PROJECTDIR)\SDL2\SDL\mixer_include;$(PROJECTDIR)\SDL2\SDL\image_include;$(PROJECTDIR)\SDL2\SDL\include;$(PROJECTDIR)\SDL2\SDL\ttf_include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(PROJECTDIR)\SDL2\SDL</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,30 +144,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CharacterPellet.cpp" />
-    <ClCompile Include="CharacterGhost.cpp" />
-    <ClCompile Include="Characters.cpp" />
+    <ClCompile Include="EntityPellet.cpp" />
+    <ClCompile Include="EntityGhost.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="Level2.cpp" />
     <ClCompile Include="LevelMap.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
+    <ClCompile Include="SoundEffect.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TextLoad.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CharacterPellet.h" />
-    <ClInclude Include="CharacterGhost.h" />
-    <ClInclude Include="Characters.h" />
+    <ClInclude Include="EntityPellet.h" />
+    <ClInclude Include="EntityGhost.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="commons.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="Level1.h" />
+    <ClInclude Include="Level2.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="ScreenManager.h" />
+    <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +181,7 @@
     <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2test.lib" />
     <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_image.lib" />
     <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_mixer.lib" />
+    <Library Include="SDL2\SDL\SDL2_ttf.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

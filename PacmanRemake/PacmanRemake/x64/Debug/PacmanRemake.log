@@ -1,4 +1,37 @@
-﻿Source.obj : error LNK2019: unresolved external symbol SDL_GetError referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+﻿  CharacterPellet.cpp
+  CharacterGhost.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(10,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(11,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,51): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,71): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,71): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,90): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(27,90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(29,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(52,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\CharacterGhost.cpp(52,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Level1.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(61,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(61,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  LevelMap.cpp
+  MainMenu.cpp
+  ScreenManager.cpp
+  Source.cpp
+  Texture.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,42): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,58): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Source.cpp(73): warning C4715: 'InitSDL': not all control paths return a value
+Level1.obj : error LNK2019: unresolved external symbol "public: __cdecl TextLoad::TextLoad(struct SDL_Renderer *)" (??0TextLoad@@QEAA@PEAUSDL_Renderer@@@Z) referenced in function "private: bool __cdecl Level1::SetUpLevel(void)" (?SetUpLevel@Level1@@AEAA_NXZ)
+Level1.obj : error LNK2019: unresolved external symbol "public: bool __cdecl TextLoad::LoadText(char const *,char const *,struct SDL_Color)" (?LoadText@TextLoad@@QEAA_NPEBD0USDL_Color@@@Z) referenced in function "private: bool __cdecl Level1::SetUpLevel(void)" (?SetUpLevel@Level1@@AEAA_NXZ)
+Level1.obj : error LNK2019: unresolved external symbol "public: void __cdecl TextLoad::Render(struct SDL_Rect)" (?Render@TextLoad@@QEAAXUSDL_Rect@@@Z) referenced in function "public: virtual void __cdecl Level1::Render(void)" (?Render@Level1@@UEAAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_GetError referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
 Texture.obj : error LNK2001: unresolved external symbol SDL_GetError
 Source.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
 Source.obj : error LNK2019: unresolved external symbol SDL_DestroyWindow referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
@@ -13,6 +46,8 @@ Source.obj : error LNK2019: unresolved external symbol SDL_Init referenced in fu
 Source.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
 Source.obj : error LNK2019: unresolved external symbol IMG_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
 Source.obj : error LNK2019: unresolved external symbol IMG_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol TTF_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol TTF_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
 Texture.obj : error LNK2019: unresolved external symbol SDL_MapRGB referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
 Texture.obj : error LNK2019: unresolved external symbol SDL_FreeSurface referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
 Texture.obj : error LNK2019: unresolved external symbol SDL_SetColorKey referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
@@ -26,4 +61,5 @@ MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main refer
 ..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2test.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
 ..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
 ..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\x64\Debug\PacmanRemake.exe : fatal error LNK1120: 22 unresolved externals
+SDL2\SDL\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\x64\Debug\PacmanRemake.exe : fatal error LNK1120: 27 unresolved externals

@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <SDL_ttf.h>
 #include "constants.h"
 #include "ScreenManager.h"
 using namespace std;
@@ -29,6 +30,15 @@ void Render()
 bool InitSDL()
 {
 	//setup SDL
+	TTF_Init();
+
+	//initialise the mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		cout << "Mixer could not init. Error: " << Mix_GetError();
+		return false;
+	}
+
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		cout << "SDL did not initialise. Error: " << SDL_GetError();
@@ -53,7 +63,6 @@ bool InitSDL()
 	}
 
 	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
-	TTF_Init();
 	if (g_renderer != nullptr)
 	{
 		//init PNG loading

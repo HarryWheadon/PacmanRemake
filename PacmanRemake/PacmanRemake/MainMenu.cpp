@@ -2,18 +2,18 @@
 
 MainMenu::MainMenu(SDL_Renderer* renderer) : GameScreen(renderer)
 {
+	//loads in the background texture
 	m_background_texture = new Texture(m_renderer);
 
 	if (!m_background_texture->LoadTexFromFile("Images/PacmanMenu.png"))
 	{
 		std::cout << " Failed to load background texture!" << std::endl;
 	}
-
-	TTF_Font* font = TTF_OpenFont("arial.ttf", 25);
-	SDL_Color color = { 255, 255, 255 };
-	SDL_Surface* surface = TTF_RenderText_Solid(font,
-		"Welcome to Gigi Labs", color);
-    
+	//m_score = new TextLoad(m_renderer);
+	//if (!m_score->LoadText("0", { 255, 255, 255 }))
+	//{
+	//	std::cout << " Failed to load text" << std::endl;
+	//}
 }
 
 MainMenu::~MainMenu()
@@ -27,6 +27,7 @@ void MainMenu::Render()
 
 	if(changeScreen)
 	screen_manager->Render();
+	//m_score->Render({ 0,0,0,0 });
 }
 
 void MainMenu::Update(float deltaTime, SDL_Event e)

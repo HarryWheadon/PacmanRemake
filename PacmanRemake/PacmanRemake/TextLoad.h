@@ -14,8 +14,10 @@ public:
 	TextLoad(SDL_Renderer* renderer);
 	~TextLoad();
 
-	bool LoadText(const char* text, const char* font_type, SDL_Color color);
+	bool LoadText(const char* text,SDL_Color color);
+	void Render(SDL_Rect dstrect);
 	void RemoveText();
+
 private:
 	SDL_Texture* m_texture;
 	SDL_Renderer* m_renderer;

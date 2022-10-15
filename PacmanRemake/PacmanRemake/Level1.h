@@ -1,20 +1,22 @@
 #pragma once
 #include "GameScreen.h"
-#include "Characters.h"
-#include "CharacterPellet.h"
-#include "CharacterGhost.h"
-#include "Commons.h"
-#include "Texture.h"
-#include "LevelMap.h"
-#include "SDL_ttf.h"
+#include "Entity.h"
+#include "EntityPellet.h"
+#include "EntityGhost.h"
+#include "ScreenManager.h"
+#include "MainMenu.h"
+#include "TextLoad.h"
+#include "SoundEffect.h"
 #include <vector>
 #include <iostream>
 
-class CharacterGhost;
-class Characters;
-class CharacterPellet;
+class LevelMap;
 class Texture;
-
+class SoundEffect;
+class EntityPellet;
+class EntityGhost;
+class EntityPacman;
+class Entity;
 class Level1 : GameScreen
 {
 public:
@@ -27,12 +29,15 @@ public:
 private:
 	Texture* m_background_texture;
 	LevelMap* m_level_map;
-	CharacterPacman* Pacman_Character;
-	CharacterGhost* Ghost_Character;
-	CharacterPellet* Pellet_Character;
-	vector<CharacterGhost*> m_ghost;
-	vector<CharacterPellet*> m_pellets;
+	EntityPacman* Pacman_Entity;
+	EntityGhost* Ghost_Entity;
+	EntityPellet* Pellet_Entity;
+	vector<EntityGhost*> m_ghost;
+	vector<EntityPellet*> m_pellets;
+	SoundEffect* m_pop;
+	SoundEffect* m_background_sound;
 
+	int m_score;
 	float m_background_yPos;
 
 	void CreatePellet(Vector2D position);

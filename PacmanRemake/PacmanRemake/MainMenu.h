@@ -5,8 +5,10 @@
 #include <vector>
 #include <iostream>
 
+class TextLoad;
 class Texture;
 class ScreenManager;
+
 class MainMenu : GameScreen
 {
 public:
@@ -15,12 +17,13 @@ public:
 
 	void Render() override;
 	void Update(float deltaTime, SDL_Event e);
+
 private:
-	Texture* m_background_texture;
-	Texture* m_text;
-	ScreenManager* screen_manager;
-  
 	bool changeScreen = false;
+
+	ScreenManager* screen_manager;
+	Texture* m_background_texture;
+	TextLoad* m_score;
 };
 
 
