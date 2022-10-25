@@ -4,31 +4,29 @@ TextLoad::TextLoad(SDL_Renderer* renderer)
 {
 	m_renderer = renderer;
 }
-bool TextLoad::LoadText(const char* text, SDL_Color color)
+TextLoad::~TextLoad()
 {
-	TTF_Font* font = TTF_OpenFont("Joystix.tff", 25);
-	SDL_Color colour = color;
+	m_renderer = nullptr;
+}
 
-	SDL_Surface* surface = TTF_RenderText_Solid(font, text, colour);
+void TextLoad::TextRender(int x, int y)
+{
+	text_rect.x = x;
+	text_rect.y = y;
+
+	SDL_RenderCopy(m_renderer, m_texture, nullptr, &text_rect);
+}
+
+bool TextLoad::LoadFont(const char* text, int font_size, string path, SDL_Color color)
+{
+	TTF_Font* font = TTF_OpenFont(path.c_str(), font_size);
+	SDL_Surface* surface = TTF_RenderText_Solid(font, text,color);
 
 	m_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
 
-	return true;
-}
+	TTF_CloseFont(font);
+	SDL_FreeSurface(surface);
 
-void TextLoad::Render(SDL_Rect dstrect)
-{
-	SDL_RenderCopy(m_renderer, m_texture, NULL, &dstrect);
-	SDL_RenderPresent(m_renderer);
-}
-
-void TextLoad::RemoveText()
-{
-	SDL_DestroyTexture(m_texture);
-}
-
-TextLoad::~TextLoad()
-{
-	RemoveText();
-	m_renderer = nullptr;
+	SDL_QueryTexture(m_texture, nullptr, nullptr, &text_rect.w, &text_rect.h);
+	return m_texture;
 }

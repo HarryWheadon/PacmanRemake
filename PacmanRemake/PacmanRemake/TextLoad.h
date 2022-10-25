@@ -14,11 +14,12 @@ public:
 	TextLoad(SDL_Renderer* renderer);
 	~TextLoad();
 
-	bool LoadText(const char* text,SDL_Color color);
-	void Render(SDL_Rect dstrect);
-	void RemoveText();
+	void TextRender(int x, int y);
+	bool LoadFont(const char* text,int font_size, string path, SDL_Color color);
 
 private:
 	SDL_Texture* m_texture;
 	SDL_Renderer* m_renderer;
+	mutable SDL_Rect text_rect;
+	TTF_Font* font;
 };

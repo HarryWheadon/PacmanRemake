@@ -30,15 +30,6 @@ void Render()
 bool InitSDL()
 {
 	//setup SDL
-	TTF_Init();
-
-	//initialise the mixer
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
-	{
-		cout << "Mixer could not init. Error: " << Mix_GetError();
-		return false;
-	}
-
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		cout << "SDL did not initialise. Error: " << SDL_GetError();
@@ -60,6 +51,19 @@ bool InitSDL()
 			cout << "window was not created. error " << SDL_GetError();
 			return false;
 		}
+	}
+
+	//initialise the mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		cout << "Mixer could not init. Error: " << Mix_GetError();
+		return false;
+	}
+
+	if (TTF_Init() < 0)
+	{
+		cout << "TTF could not init. Error: " << TTF_GetError();
+		return false;
 	}
 
 	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);

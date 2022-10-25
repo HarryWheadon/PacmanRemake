@@ -40,6 +40,7 @@ bool Level1::SetUpLevel()
 	Pacman_Entity = new EntityPacman(m_renderer, "Images/PacmanAnimation2.png", Vector2D(288, 224), m_level_map);
 	m_background_sound = new SoundEffect("Audio/Intro.mp3");
 	m_pop = new SoundEffect("Audio/pop.wav");
+	m_text = new TextLoad(m_renderer);
 
 	//Create individual ghosts using different starting positions
 	CreateGhost("Images/GhostAnimation1.png", Vector2D(32, 512));
@@ -60,14 +61,19 @@ bool Level1::SetUpLevel()
 		}
 	}
     
+	if (!m_text->LoadFont(("fonts/Joystix.TTF"), 25, message + std::to_string(score), { 255, 255, 255 }))
+	{
+		cout << "Failed to load Text" << endl;
+		return false;
+	}
+
 	m_background_yPos = 0.0f;
 	m_background_texture = new Texture(m_renderer);
-
 
 	//loads in background texture
 	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackground.png"))
 	{
-		std::cout << " Failed to load background texture!" << std::endl;
+		cout << " Failed to load background texture!" << endl;
 		return false;
 	}
 	return true;
@@ -84,6 +90,7 @@ void Level1::Render()
 	//draw the background
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE, 0.0);
 	Pacman_Entity->Render();
+	m_text->TextRender(200, 300);
 	for (int i = 0; i < m_pellets.size(); i++)
 	{
 		m_pellets[i]->Render();
@@ -105,6 +112,13 @@ void Level1::Update(float deltaTime, SDL_Event e)
 			m_ghost[i]->HitWall(true);
 		}
 	}
+
+	if (m_text != nullptr && score != old_score)
+	{
+		old_score = score;
+		m_text->LoadFont(("fonts/Joystix.TTF"), 25, message + std::to_string(score), { 255, 255, 255 });
+	}
+
 	Pacman_Entity->PacmanUpdate(deltaTime, e);
 	Pacman_Entity->HitWall(true);
 	UpdatePellet(deltaTime, e);
@@ -112,6 +126,7 @@ void Level1::Update(float deltaTime, SDL_Event e)
 
 	if (!m_pellets.size())
 	{
+
 	}
 }
 
@@ -146,6 +161,7 @@ void Level1::UpdatePellet(float deltaTime, SDL_Event e)
 			    //the pellet is deleted and a sound effect is played
 				m_pellets[i]->SetAlive(false);
 				m_pop->Play();
+				score += 10;
 			}
 			if (!m_pellets[i]->GetAlive())
 			{

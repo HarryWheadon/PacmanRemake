@@ -36,8 +36,10 @@ private:
 	vector<EntityPellet*> m_pellets;
 	SoundEffect* m_pop;
 	SoundEffect* m_background_sound;
+	TextLoad* m_text;
 
-	int m_score;
+	string message = "score";
+	int score = 0, old_score;
 	float m_background_yPos;
 
 	void CreatePellet(Vector2D position);

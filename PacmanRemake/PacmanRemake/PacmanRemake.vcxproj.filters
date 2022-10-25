@@ -101,13 +101,25 @@
     <ClInclude Include="Level2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TextLoad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2.lib" />
-    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_image.lib" />
-    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2_mixer.lib" />
-    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2main.lib" />
-    <Library Include="..\..\..\..\..\Documents\GitHub\PacmanRemake\PacmanRemake\PacmanRemake\SDL2\SDL\SDL2test.lib" />
-    <Library Include="SDL2\SDL\SDL2_ttf.lib" />
+    <Library Include="SDL2\SDL\SDL2.lib">
+      <Filter>Source Files</Filter>
+    </Library>
+    <Library Include="SDL2\SDL\SDL2_image.lib">
+      <Filter>Source Files</Filter>
+    </Library>
+    <Library Include="SDL2\SDL\SDL2_mixer.lib">
+      <Filter>Source Files</Filter>
+    </Library>
+    <Library Include="SDL2\SDL\SDL2_ttf.lib">
+      <Filter>Source Files</Filter>
+    </Library>
+    <Library Include="SDL2\SDL\SDL2main.lib">
+      <Filter>Source Files</Filter>
+    </Library>
   </ItemGroup>
 </Project>
