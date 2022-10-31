@@ -1,1 +1,91 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(439,5): error MSB8020: The build tools for v143 (Platform Toolset = 'v143') cannot be found. To build using the v143 build tools, please install v143 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
+﻿  EntityPellet.cpp
+  EntityGhost.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(11,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(12,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(28,51): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(28,51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(28,71): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(28,71): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(28,90): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(28,90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(30,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(30,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(30,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(30,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(51,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\EntityGhost.cpp(51,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Entity.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(55,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(56,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(58,51): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(58,51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(58,71): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(58,71): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(58,90): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(58,90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(60,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(60,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(60,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(60,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(161,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Entity.cpp(161,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Collisions.cpp
+  GameScreen.cpp
+  Level1.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(59,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(59,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Level2.cpp
+  LevelMap.cpp
+  MainMenu.cpp
+  ScreenManager.cpp
+  SoundEffect.cpp
+  Source.cpp
+  TextLoad.cpp
+  Texture.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,42): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,58): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Texture.cpp(12,58): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Source.cpp(87): warning C4715: 'InitSDL': not all control paths return a value
+SoundEffect.obj : error LNK2019: unresolved external symbol SDL_GetError referenced in function "public: void __cdecl SoundEffect::LoadMusic(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadMusic@SoundEffect@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Source.obj : error LNK2001: unresolved external symbol SDL_GetError
+Texture.obj : error LNK2001: unresolved external symbol SDL_GetError
+SoundEffect.obj : error LNK2019: unresolved external symbol Mix_LoadMUS referenced in function "public: void __cdecl SoundEffect::LoadMusic(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadMusic@SoundEffect@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+SoundEffect.obj : error LNK2019: unresolved external symbol Mix_PlayMusic referenced in function "public: void __cdecl SoundEffect::Play(void)" (?Play@SoundEffect@@QEAAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_DestroyWindow referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function "bool __cdecl Update(void)" (?Update@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_CreateRenderer referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_SetRenderDrawColor referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_RenderClear referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_RenderPresent referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_DestroyRenderer referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_GetTicks referenced in function "bool __cdecl Update(void)" (?Update@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol IMG_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol IMG_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+Source.obj : error LNK2019: unresolved external symbol Mix_OpenAudio referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol TTF_Init referenced in function "bool __cdecl InitSDL(void)" (?InitSDL@@YA_NXZ)
+Source.obj : error LNK2019: unresolved external symbol TTF_Quit referenced in function "void __cdecl CloseSDL(void)" (?CloseSDL@@YAXXZ)
+TextLoad.obj : error LNK2019: unresolved external symbol SDL_FreeSurface referenced in function "public: bool __cdecl TextLoad::LoadFont(char const *,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextLoad@@QEAA_NPEBDHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@@Z)
+Texture.obj : error LNK2001: unresolved external symbol SDL_FreeSurface
+TextLoad.obj : error LNK2019: unresolved external symbol SDL_CreateTextureFromSurface referenced in function "public: bool __cdecl TextLoad::LoadFont(char const *,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextLoad@@QEAA_NPEBDHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@@Z)
+Texture.obj : error LNK2001: unresolved external symbol SDL_CreateTextureFromSurface
+TextLoad.obj : error LNK2019: unresolved external symbol SDL_QueryTexture referenced in function "public: bool __cdecl TextLoad::LoadFont(char const *,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextLoad@@QEAA_NPEBDHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@@Z)
+TextLoad.obj : error LNK2019: unresolved external symbol SDL_RenderCopy referenced in function "public: void __cdecl TextLoad::TextRender(int,int)" (?TextRender@TextLoad@@QEAAXHH@Z)
+TextLoad.obj : error LNK2019: unresolved external symbol TTF_OpenFont referenced in function "public: bool __cdecl TextLoad::LoadFont(char const *,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextLoad@@QEAA_NPEBDHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@@Z)
+TextLoad.obj : error LNK2019: unresolved external symbol TTF_RenderText_Solid referenced in function "public: bool __cdecl TextLoad::LoadFont(char const *,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextLoad@@QEAA_NPEBDHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@@Z)
+TextLoad.obj : error LNK2019: unresolved external symbol TTF_CloseFont referenced in function "public: bool __cdecl TextLoad::LoadFont(char const *,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct SDL_Color)" (?LoadFont@TextLoad@@QEAA_NPEBDHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@USDL_Color@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_MapRGB referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_SetColorKey referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_RenderCopyEx referenced in function "public: void __cdecl Texture::Render(struct SDL_Rect,struct SDL_Rect,enum SDL_RendererFlip,double)" (?Render@Texture@@QEAAXUSDL_Rect@@0W4SDL_RendererFlip@@N@Z)
+Texture.obj : error LNK2019: unresolved external symbol SDL_DestroyTexture referenced in function "public: void __cdecl Texture::RemoveTexture(void)" (?RemoveTexture@Texture@@QEAAXXZ)
+Texture.obj : error LNK2019: unresolved external symbol IMG_Load referenced in function "public: bool __cdecl Texture::LoadTexFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?LoadTexFromFile@Texture@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+SDL2\SDL\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+SDL2\SDL\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+SDL2\SDL\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+SDL2\SDL\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\x64\Debug\PacmanRemake.exe : fatal error LNK1120: 32 unresolved externals

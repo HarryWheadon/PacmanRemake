@@ -15,9 +15,10 @@ public:
 	~TextLoad();
 
 	void TextRender(int x, int y);
-	bool LoadFont(const char* text,int font_size, string path, SDL_Color color);
-
+	bool LoadFont(int font_size, string text, SDL_Color color);
 private:
+
+	const char* score;
 	SDL_Texture* m_texture;
 	SDL_Renderer* m_renderer;
 	mutable SDL_Rect text_rect;

@@ -1,2 +1,6 @@
-﻿SDL2main.lib(SDL_windows_main.obj) : error LNK2019: unresolved external symbol __imp__CommandLineToArgvW@8 referenced in function _main_getcmdline
-C:\Users\harry\Downloads\HelloGL fogg\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Level1.cpp
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(59,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(59,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(88,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\PacmanRemake\Level1.cpp(93,20): warning C4018: '<': signed/unsigned mismatch
+  PacmanRemake.vcxproj -> C:\Users\harry\Downloads\Personal Projects\PacmanRemake\PacmanRemake\Debug\PacmanRemake.exe

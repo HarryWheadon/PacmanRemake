@@ -17,12 +17,18 @@ void TextLoad::TextRender(int x, int y)
 	SDL_RenderCopy(m_renderer, m_texture, nullptr, &text_rect);
 }
 
-bool TextLoad::LoadFont(const char* text, int font_size, string path, SDL_Color color)
+bool TextLoad::LoadFont(int font_size, string text, SDL_Color color)
 {
-	TTF_Font* font = TTF_OpenFont(path.c_str(), font_size);
-	SDL_Surface* surface = TTF_RenderText_Solid(font, text,color);
-
-	m_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+	TTF_Font* font = TTF_OpenFont("fonts/Joystix.TTF", font_size);
+	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color);
+	if (surface != nullptr)
+	{
+		m_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+		if (m_texture == nullptr)
+		{
+			cout << "unable to create texture from surface. Error: " << SDL_GetError();
+		}
+	}
 
 	TTF_CloseFont(font);
 	SDL_FreeSurface(surface);

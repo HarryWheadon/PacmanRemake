@@ -25,7 +25,6 @@ public:
 
 	void Render() override;
 	void Update(float deltaTime, SDL_Event e) override;
-
 private:
 	Texture* m_background_texture;
 	LevelMap* m_level_map;
@@ -38,9 +37,9 @@ private:
 	SoundEffect* m_background_sound;
 	TextLoad* m_text;
 
-	string message = "score";
-	int score = 0, old_score;
 	float m_background_yPos;
+	int score = 0;
+    int scoreOld = 0;
 
 	void CreatePellet(Vector2D position);
 	void CreateGhost(string file, Vector2D position);

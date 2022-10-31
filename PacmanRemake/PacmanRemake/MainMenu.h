@@ -5,7 +5,6 @@
 #include <vector>
 #include <iostream>
 
-class TextLoad;
 class Texture;
 class ScreenManager;
 
@@ -23,7 +22,6 @@ private:
 
 	ScreenManager* screen_manager;
 	Texture* m_background_texture;
-	TextLoad* m_score;
 };
 
 

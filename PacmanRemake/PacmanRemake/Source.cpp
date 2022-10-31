@@ -3,13 +3,15 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
+#include "Texture.h"
+#include "Commons.h"
 #include "constants.h"
 #include "ScreenManager.h"
 using namespace std;
+
 //Globals
 SDL_Window* g_window = nullptr;
 SDL_Renderer* g_renderer = nullptr;
-SDL_Texture* g_texture = nullptr;
 Uint32 g_time;
 ScreenManager* screen_manager;
 
@@ -29,6 +31,21 @@ void Render()
 
 bool InitSDL()
 {
+
+	//initialise the mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		cout << "Mixer could not init. Error: " << Mix_GetError();
+		return false;
+	}
+
+	if (TTF_Init() < 0)
+	{
+		cout << "TTF could not init. Error: " << TTF_GetError();
+		return false;
+	}
+
+
 	//setup SDL
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -53,20 +70,8 @@ bool InitSDL()
 		}
 	}
 
-	//initialise the mixer
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
-	{
-		cout << "Mixer could not init. Error: " << Mix_GetError();
-		return false;
-	}
-
-	if (TTF_Init() < 0)
-	{
-		cout << "TTF could not init. Error: " << TTF_GetError();
-		return false;
-	}
-
 	g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
+
 	if (g_renderer != nullptr)
 	{
 		//init PNG loading
@@ -82,6 +87,8 @@ bool InitSDL()
 		cout << "Renderer could not initialise. Error: " << SDL_GetError();
 		return false;
 	}
+
+	return true;
 }
 
 

@@ -60,12 +60,6 @@ bool Level1::SetUpLevel()
 			}
 		}
 	}
-    
-	if (!m_text->LoadFont(("fonts/Joystix.TTF"), 25, message + std::to_string(score), { 255, 255, 255 }))
-	{
-		cout << "Failed to load Text" << endl;
-		return false;
-	}
 
 	m_background_yPos = 0.0f;
 	m_background_texture = new Texture(m_renderer);
@@ -90,7 +84,7 @@ void Level1::Render()
 	//draw the background
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE, 0.0);
 	Pacman_Entity->Render();
-	m_text->TextRender(200, 300);
+	m_text->TextRender(280, 14);
 	for (int i = 0; i < m_pellets.size(); i++)
 	{
 		m_pellets[i]->Render();
@@ -113,10 +107,10 @@ void Level1::Update(float deltaTime, SDL_Event e)
 		}
 	}
 
-	if (m_text != nullptr && score != old_score)
+	if (m_text != nullptr && score != scoreOld)
 	{
-		old_score = score;
-		m_text->LoadFont(("fonts/Joystix.TTF"), 25, message + std::to_string(score), { 255, 255, 255 });
+		scoreOld = score;
+		m_text->LoadFont(35, to_string(scoreOld), {255, 255, 255});
 	}
 
 	Pacman_Entity->PacmanUpdate(deltaTime, e);

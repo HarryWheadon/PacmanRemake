@@ -121,5 +121,8 @@
     <Library Include="SDL2\SDL\SDL2main.lib">
       <Filter>Source Files</Filter>
     </Library>
+    <Library Include="SDL2\SDL\SDL2test.lib">
+      <Filter>Source Files</Filter>
+    </Library>
   </ItemGroup>
 </Project>

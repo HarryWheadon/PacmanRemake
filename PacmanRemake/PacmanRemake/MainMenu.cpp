@@ -9,11 +9,6 @@ MainMenu::MainMenu(SDL_Renderer* renderer) : GameScreen(renderer)
 	{
 		std::cout << " Failed to load background texture!" << std::endl;
 	}
-	//m_score = new TextLoad(m_renderer);
-	//if (!m_score->LoadText("0", { 255, 255, 255 }))
-	//{
-	//	std::cout << " Failed to load text" << std::endl;
-	//}
 }
 
 MainMenu::~MainMenu()
@@ -27,7 +22,6 @@ void MainMenu::Render()
 
 	if(changeScreen)
 	screen_manager->Render();
-	//m_score->Render({ 0,0,0,0 });
 }
 
 void MainMenu::Update(float deltaTime, SDL_Event e)
