@@ -65,7 +65,7 @@ bool Level1::SetUpLevel()
 	m_background_texture = new Texture(m_renderer);
 
 	//loads in background texture
-	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackground.png"))
+	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackgroundLevel2.png"))
 	{
 		cout << " Failed to load background texture!" << endl;
 		return false;
@@ -84,7 +84,7 @@ void Level1::Render()
 	//draw the background
 	m_background_texture->Render(Vector2D(0, m_background_yPos), SDL_FLIP_NONE, 0.0);
 	Pacman_Entity->Render();
-	m_text->TextRender(280, 14);
+	m_text->TextRender(250, 14);
 	for (int i = 0; i < m_pellets.size(); i++)
 	{
 		m_pellets[i]->Render();
