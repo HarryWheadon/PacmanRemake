@@ -113,8 +113,8 @@ void Entity::Update(float deltaTime, SDL_Event e)
 
 	//		//loop frame around if it goes beyond the number of frames
 	//		if (m_current_frame > 1)
-	//			m_current_frame = 0;
-	//	}
+	//		m_current_frame = 0;
+	//}
 	//}
 	//else
 	//{
@@ -126,7 +126,7 @@ void Entity::Update(float deltaTime, SDL_Event e)
 	//		//move the frame over
 	//		m_current_frame++;
 
-	//		//loop frame around if it goes beyond the number of frames
+	//	//loop frame around if it goes beyond the number of frames
 	//		if (m_current_frame > 3)
 	//			m_current_frame = 2;
 	//	}

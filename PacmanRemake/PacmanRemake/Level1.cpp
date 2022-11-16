@@ -65,7 +65,7 @@ bool Level1::SetUpLevel()
 	m_background_texture = new Texture(m_renderer);
 
 	//loads in background texture
-	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackgroundLevel2.png"))
+	if (!m_background_texture->LoadTexFromFile("Images/PacmanBackground.png"))
 	{
 		cout << " Failed to load background texture!" << endl;
 		return false;
