@@ -12,10 +12,10 @@ class Texture;
 class Entity
 {
 protected:
-	virtual void MoveLeft(float deltaTime);
-	virtual void MoveRight(float deltaTime);
-	virtual void MoveUp(float deltaTime);
-	virtual void MoveDown(float deltaTime);
+	virtual void MoveLeft(float deltaTime, int speed);
+	virtual void MoveRight(float deltaTime, int speed);
+	virtual void MoveUp(float deltaTime, int speed);
+	virtual void MoveDown(float deltaTime, int speed);
 
 	SDL_Renderer* m_renderer;
 	Vector2D m_position;
@@ -32,6 +32,7 @@ protected:
 	float m_single_sprite_h;
 	float m_current_frame;
 	float m_frame_delay;
+	int m_speed;
 
 public:
 	Entity(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);
@@ -39,6 +40,7 @@ public:
 
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
+	void GhostUpdate(float deltaTime, SDL_Event e, int speed);
 	void UpdateCollision(float deltaTime, SDL_Event e);
 	bool GetHitWall() { return hitwall; }
 	bool GetAlive() { return m_alive; }

@@ -23,6 +23,11 @@ void ScreenManager::Render()
 void ScreenManager::Update(float deltaTime, SDL_Event e)
 {
 	m_current_screen->Update(deltaTime, e);
+
+	if(m_current_screen->GetScreen() != SCREEN_NULL)
+	{ 
+	ChangeScreen(m_current_screen->GetScreen());
+    }
 }
 
 void ScreenManager::ChangeScreen(SCREENS new_screen)
@@ -49,7 +54,10 @@ void ScreenManager::ChangeScreen(SCREENS new_screen)
 	}
 	else if (new_screen == SCREEN_LEVEL2)
 	{
-
+		Level2* tempScreen;
+		tempScreen = new Level2(m_renderer);
+		m_current_screen = (GameScreen*)tempScreen;
+		tempScreen = nullptr;
 	}
 	else if (new_screen == SCREEN_LEVEL3)
 	{

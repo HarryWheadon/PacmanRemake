@@ -1,27 +1,27 @@
 #include "Entity.h"
 
-void Entity::MoveLeft(float deltaTime)
+void Entity::MoveLeft(float deltaTime, int speed)
 {
 	m_facing_direction = FACING_LEFT;
-	m_position.x -= deltaTime * MOVEMENTSPEED;
+	m_position.x -= deltaTime * speed;
 }
 
-void Entity::MoveRight(float deltaTime)
+void Entity::MoveRight(float deltaTime, int speed)
 {
 	m_facing_direction = FACING_RIGHT;
-	m_position.x += deltaTime * MOVEMENTSPEED;
+	m_position.x += deltaTime * speed;
 }
 
-void Entity::MoveUp(float deltaTime)
+void Entity::MoveUp(float deltaTime, int speed)
 {
 	m_facing_direction = FACING_UP;
-	m_position.y -= deltaTime * MOVEMENTSPEED;
+	m_position.y -= deltaTime * speed;
 }
 
-void Entity::MoveDown(float deltaTime)
+void Entity::MoveDown(float deltaTime, int speed)
 {
 	m_facing_direction = FACING_DOWN;
-	m_position.y += deltaTime * MOVEMENTSPEED;
+	m_position.y += deltaTime * speed;
 }
 
 Entity::Entity(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map)
@@ -84,53 +84,53 @@ void Entity::Update(float deltaTime, SDL_Event e)
 
 	if (m_moving_left)
 	{
-		MoveLeft(deltaTime);
+		MoveLeft(deltaTime, MOVEMENTSPEED);
 	}
 	if (m_moving_right)
 	{
-		MoveRight(deltaTime);
+		MoveRight(deltaTime, MOVEMENTSPEED);
 	}
 	if (m_moving_up)
 	{
-		MoveUp(deltaTime);
+		MoveUp(deltaTime, MOVEMENTSPEED);
 	}
 	if (m_moving_down)
 	{
-		MoveDown(deltaTime);
+		MoveDown(deltaTime, MOVEMENTSPEED);
 	}
 
-	//m_frame_delay -= deltaTime;
+	m_frame_delay -= deltaTime;
 
-	//if (m_current_frame < 2)
-	//{
-	//	if (m_frame_delay <= 0.0f)
-	//	{
-	//		//reset frame delay count
-	//		m_frame_delay = ANIMATION_DELAY;
+	if (m_current_frame < 2)
+	{
+		if (m_frame_delay <= 0.0f)
+		{
+			//reset frame delay count
+			m_frame_delay = ANIMATION_DELAY;
 
-	//		//move the frame over
-	//		m_current_frame++;
+			//move the frame over
+			m_current_frame++;
 
-	//		//loop frame around if it goes beyond the number of frames
-	//		if (m_current_frame > 1)
-	//		m_current_frame = 0;
-	//}
-	//}
-	//else
-	//{
-	//	if (m_frame_delay <= 0.0f)
-	//	{
-	//		//reset frame delay count
-	//		m_frame_delay = ANIMATION_DELAY;
+			//loop frame around if it goes beyond the number of frames
+			if (m_current_frame > 1)
+			m_current_frame = 0;
+	}
+	}
+	else
+	{
+		if (m_frame_delay <= 0.0f)
+		{
+			//reset frame delay count
+			m_frame_delay = ANIMATION_DELAY;
 
-	//		//move the frame over
-	//		m_current_frame++;
+			//move the frame over
+			m_current_frame++;
 
-	//	//loop frame around if it goes beyond the number of frames
-	//		if (m_current_frame > 3)
-	//			m_current_frame = 2;
-	//	}
-	//}
+		//loop frame around if it goes beyond the number of frames
+			if (m_current_frame > 3)
+				m_current_frame = 2;
+		}
+	}
 
 
 	// If entity hits edge, loop to the other side
@@ -146,6 +146,39 @@ void Entity::Update(float deltaTime, SDL_Event e)
 		}
 	}
 
+}
+
+void Entity::GhostUpdate(float deltaTime, SDL_Event e, int speed)
+{
+	if (m_moving_left)
+	{
+		MoveLeft(deltaTime, speed);
+	}
+	if (m_moving_right)
+	{
+		MoveRight(deltaTime, speed);
+	}
+	if (m_moving_up)
+	{
+		MoveUp(deltaTime ,speed);
+	}
+	if (m_moving_down)
+	{
+		MoveDown(deltaTime, speed);
+	}
+
+	// If entity hits edge, loop to the other side
+	if (GetHitWall() == true)
+	{
+		if (m_position.x < -TILE_HEIGHT)
+		{
+			m_position.x = 500;
+		}
+		else if (m_position.x > 500)
+		{
+			m_position.x = -TILE_HEIGHT;
+		}
+	}
 }
 
 void Entity::UpdateCollision(float deltaTime, SDL_Event e)
@@ -238,6 +271,8 @@ void Entity::UpdateCollision(float deltaTime, SDL_Event e)
 		}
 	}
 }
+
+
 
 void Entity::SetAlive(bool isAlive)
 {

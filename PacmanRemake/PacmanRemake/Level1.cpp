@@ -1,28 +1,34 @@
 #include "Level1.h"
-
+#include <fstream>
+#include <iostream>
+#include <windows.h>
 
 
 void Level1::SetLevelMap()
 {
+	ifstream infile;
+	infile.open("LevelMap/Map1.txt");
+
 	//create the map using a 2d array
-	int map[MAP_HEIGHT][MAP_WIDTH] = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-		                               {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-									   {1,2,0,0,2,0,2,1,2,0,2,0,0,2,1},
-									   {1,0,1,1,0,1,0,1,0,1,0,1,1,0,1},
-									   {1,0,1,1,2,0,2,3,2,0,2,1,1,0,1},
-									   {1,2,0,0,2,1,1,1,1,1,2,0,0,2,1},
-									   {1,0,1,1,2,0,2,1,2,0,2,1,1,0,1},
-									   {1,2,0,0,2,1,0,1,0,1,2,0,0,2,1},
-									   {1,1,1,1,2,0,2,3,2,0,2,1,1,1,1},
-									   {0,0,0,0,3,1,1,1,1,1,3,0,0,0,0},
-									   {1,1,1,1,3,1,1,1,1,1,3,1,1,1,1},
-									   {1,2,0,0,2,0,2,3,2,0,2,0,0,2,1},
-									   {1,0,1,1,0,1,1,1,1,1,0,1,1,0,1},
-		                               {1,0,1,2,2,2,1,1,1,2,2,2,1,0,1},
-		                               {1,2,0,2,1,2,2,1,2,2,1,2,0,2,1},
-		                               {1,0,1,1,1,1,0,1,0,1,1,1,1,0,1},
-		                               {1,2,0,0,0,0,2,3,2,0,0,0,0,2,1},
-									   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };
+	int map[MAP_HEIGHT][MAP_WIDTH];
+	int tempNum;
+
+	if (infile.is_open())
+	{
+		for (int x = 0; x < MAP_HEIGHT; x++)
+		{
+			for (int y = 0; y < MAP_WIDTH; y++)
+			{
+				infile >> tempNum;
+			    map[x][y] = tempNum;
+			}
+		}
+	}
+	else
+	{
+		cout << "map not open";
+	}
+
 	//clear any old maps
 	if (m_level_map != nullptr)
 	{
@@ -36,10 +42,16 @@ bool Level1::SetUpLevel()
 {
 	SetLevelMap();
 
+	ifstream infile;
+	infile.open("Score/Score.txt");
+	if (infile.is_open())
+	infile >> scoreOld;
+	infile.close();
+
 	//load textures
 	Pacman_Entity = new EntityPacman(m_renderer, "Images/PacmanAnimation2.png", Vector2D(288, 224), m_level_map);
 	m_background_sound = new SoundEffect("Audio/Intro.mp3");
-	m_pop = new SoundEffect("Audio/pop.wav");
+	m_munch = new SoundEffect("Audio/munch.mp3");
 	m_text = new TextLoad(m_renderer);
 
 	//Create individual ghosts using different starting positions
@@ -77,6 +89,7 @@ Level1::Level1(SDL_Renderer* renderer) : GameScreen(renderer)
 {
 	SetUpLevel();
 	m_level_map = nullptr;
+	m_renderer = renderer;
 }
 
 void Level1::Render()
@@ -117,11 +130,6 @@ void Level1::Update(float deltaTime, SDL_Event e)
 	Pacman_Entity->HitWall(true);
 	UpdatePellet(deltaTime, e);
 	UpdateGhost(deltaTime, e);
-
-	if (!m_pellets.size())
-	{
-
-	}
 }
 
 Level1::~Level1()
@@ -138,7 +146,7 @@ void Level1::CreatePellet(Vector2D position)
 
 void Level1::CreateGhost(string file, Vector2D position)
 {
-	Ghost_Entity = new EntityGhost(m_renderer, file, m_level_map, position, FACING_RIGHT, MOVEMENTSPEED);
+	Ghost_Entity = new EntityGhost(m_renderer, file, m_level_map, position, FACING_RIGHT, LEVEL1_SPEED);
 	m_ghost.push_back(Ghost_Entity);
 }
 
@@ -154,7 +162,7 @@ void Level1::UpdatePellet(float deltaTime, SDL_Event e)
 			{ 
 			    //the pellet is deleted and a sound effect is played
 				m_pellets[i]->SetAlive(false);
-				m_pop->Play();
+				m_munch->Play();
 				score += 10;
 			}
 			if (!m_pellets[i]->GetAlive())
@@ -167,6 +175,15 @@ void Level1::UpdatePellet(float deltaTime, SDL_Event e)
 			m_pellets.erase(m_pellets.begin() + enemyIndexToDelete);
 		}
 	}
+	else
+	{
+		ofstream outfile;
+		outfile.open("Score/Score.txt");
+		outfile << scoreOld;
+		outfile.close();
+
+		m_newScreen = SCREEN_LEVEL2;
+	}
 }
 
 void Level1::UpdateGhost(float deltaTime, SDL_Event e)
@@ -177,7 +194,27 @@ void Level1::UpdateGhost(float deltaTime, SDL_Event e)
 		if (Collisions::Instance()->Circle(m_ghost[i], Pacman_Entity))
 		{
             //pacman dies and the game ends
+			ofstream outfile;
+			outfile.open("Score/Score.txt");
+			outfile << scoreOld;
+			outfile.close();
+
+			ifstream infile;
+			infile.open("Score/HighScore.txt");
+			int tempNum;
+			infile >> tempNum;
+			if (scoreOld > tempNum)
+			{
+				ofstream file;
+				file.open("Score/HighScore.txt");
+				file << scoreOld;
+				file.close();
+			}
+			infile.close();
+
 			cout << "dead" << endl;
+			Sleep(1000);
+			m_newScreen = SCREEN_MENU;
 		}
 	}
 }

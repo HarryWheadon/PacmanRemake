@@ -4,10 +4,11 @@
 #include "ScreenManager.h"
 #include <vector>
 #include <iostream>
+#include <fstream>
 
 class Texture;
 class ScreenManager;
-
+class TextLoad;
 class MainMenu : GameScreen
 {
 public:
@@ -16,11 +17,13 @@ public:
 
 	void Render() override;
 	void Update(float deltaTime, SDL_Event e);
+	void LoadScore();
 
+	int m_score;
+	int m_HighScore;
 private:
-	bool changeScreen = false;
-
-	ScreenManager* screen_manager;
+	TextLoad* m_ScoreText;
+	TextLoad* m_HighScoreText;
 	Texture* m_background_texture;
 };
 

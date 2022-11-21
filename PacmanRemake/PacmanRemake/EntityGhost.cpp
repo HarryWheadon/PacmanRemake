@@ -6,6 +6,7 @@ EntityGhost::EntityGhost(SDL_Renderer* renderer, string imagePath, LevelMap* map
 	m_facing_direction = start_facing;
 	m_position = start_position;
 	m_renderer = renderer;
+	m_speed = movement_speed;
 
 	//splits the width of the sprite so that it accounts for only one sprite
 	m_single_sprite_w = m_texture->GetWidth() / 4;
@@ -35,7 +36,7 @@ void EntityGhost::Render()
 void EntityGhost::Update(float deltaTime, SDL_Event e)
 {
 	EntityGhost::GhostCollision(deltaTime, e);
-	Entity::Update(deltaTime, e);
+	Entity::GhostUpdate(deltaTime, e, m_speed);
 }
 
 void EntityGhost::GhostCollision(float deltaTime, SDL_Event e)

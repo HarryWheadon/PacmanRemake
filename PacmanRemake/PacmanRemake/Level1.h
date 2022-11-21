@@ -33,13 +33,13 @@ private:
 	EntityPellet* Pellet_Entity;
 	vector<EntityGhost*> m_ghost;
 	vector<EntityPellet*> m_pellets;
-	SoundEffect* m_pop;
+	SoundEffect* m_munch;
 	SoundEffect* m_background_sound;
 	TextLoad* m_text;
 
 	float m_background_yPos;
-	int score = 0;
-    int scoreOld = 0;
+	int score;
+    int scoreOld;
 
 	void CreatePellet(Vector2D position);
 	void CreateGhost(string file, Vector2D position);
